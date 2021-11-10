@@ -5,17 +5,17 @@
         <title>Rock, Paper, Scissors: MCU Edition</title>
     </head>
     <body>
-        <main>
-            <aside class="user">
+        <main class="flex-row">
+            <aside class="user side-panel flex-column">
                 <h2>👩🏻‍💻</h2>
                 <h3>Human</h3>
                 <p>Wins: 0</p>
-                <button>CHANGE GAME?</button>
+                <button class="change-game-button hidden">CHANGE GAME?</button>
             </aside>
-            <section class="game">
+            <section class="game center-panel flex-column">
                 <h1>Rock, Paper, Scissors</h1>
                 <h3>Choose your Game!</h3>
-                <button>
+                <button class="choice-button choice-card flex-column">
                     <h4> CLASSIC </h4>
                     <ul>
                         <li>THOR > IRON MAN</li>
@@ -24,7 +24,7 @@
                     </ul>
                 </button>
             </section>
-            <aside class="computer">
+            <aside class="computer side-panel flex-column">
                 <h2>💻</h2>
                 <h3>Computer</h3>
                 <p>Wins: 0</p>
