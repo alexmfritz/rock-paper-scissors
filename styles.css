@@ -115,6 +115,10 @@ main {
     text-align: center;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }
