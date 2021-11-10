@@ -23,3 +23,7 @@ var playerWins = document.getElementById('playerWin');
 var compEmoji = document.getElementById('compEmoji');
 var compName = document.getElementById('compName');
 var compWins = document.getElementById('compWin');
+// winner text
+var winnerAnouncement = document.getElementById('winnerAnnounce');
+// data model
+var game;
