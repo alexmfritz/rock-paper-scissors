@@ -27,3 +27,22 @@ var compWins = document.getElementById('compWin');
 var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
 var game;
+
+
+
+
+
+
+// helper functions
+
+function show(element) {
+    element.classList.remove('hidden');
+};
+
+function hide(element) {
+    element.classList.add('hidden');
+};
+
+function getRandomIndex(array) {
+    return Math.floor(Math.random() * array.length);
+};
