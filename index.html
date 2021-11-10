@@ -5,29 +5,54 @@
         <title>Rock, Paper, Scissors: MCU Edition</title>
     </head>
     <body>
-        <main class="flex-row">
-            <aside class="user side-panel flex-column">
-                <h2>👩🏻‍💻</h2>
-                <h3>Human</h3>
-                <p>Wins: 0</p>
+        <main class="flex row">
+            <aside class="user side-panel flex column white">
+                <h2 class="player-icons">👩🏻‍💻</h2>
+                <h3 class="player-titles">Human</h3>
+                <p class="player-scores top-marg">Wins: 0</p>
                 <button class="change-game-button hidden">CHANGE GAME?</button>
             </aside>
-            <section class="game center-panel flex-column">
-                <h1>Rock, Paper, Scissors</h1>
-                <h3>Choose your Game!</h3>
-                <button class="choice-button choice-card flex-column">
-                    <h4> CLASSIC </h4>
-                    <ul>
-                        <li>THOR > IRON MAN</li>
-                        <li>CAPT AM > THOR</li>
-                        <li>IRON MAN > CAPT AM</li>
-                    </ul>
-                </button>
+            <section class="game center-panel flex column space-between">
+                <section class="split-height top-marg text-center white">
+                    <h1 class="title">Rock, Paper, Scissors</h1>
+                    <h3 class="top-marg">Choose your game!</h3>
+                </section>
+                <section class="flex row split-height">
+                    <section>
+                        <button class="no-back"><img class="med-image" src="assets/ironman.png" /></button>
+                        <button class="no-back"><img class="med-image" src="assets/capam.png" /></button>
+                        <button class="no-back"><img class="med-image" src="assets/thor.png" /></button>
+                    </section>
+                    <section class="hidden">
+                        <button class="no-back"><img class="med-image" src="assets/hulk.png" /></button>
+                        <button class="no-back"><img class="med-image" src="assets/blackwidow.png" /></button>
+                    </section>
+                </section>
+                <section class="flex column space-even split-height">
+                    <button class="choice-button choice-card flex column bottom-marg white">
+                        <h4> CLASSIC </h4>
+                        <ul>
+                            <li>THOR > IRON MAN</li>
+                            <li>CAPT AM > THOR</li>
+                            <li>IRON MAN > CAPT AM</li>
+                        </ul>
+                    </button>
+                    <button class="choice-button choice-card flex column bottom-marg white">
+                        <h4>🔥 SPICY 🔥</h4>
+                        <ul>
+                            <li>THOR > IRON MAN & WIDOW</li>
+                            <li>CAPT AM > THOR & WIDOW</li>
+                            <li>IRON MAN > CAPT AM & HULK</li>
+                            <li>HULK > THOR & CAPT AM</li>
+                            <li>WIDOW > HULK & IRON MAN</li>
+                        </ul>
+                    </button>
+                </section>
             </section>
-            <aside class="computer side-panel flex-column">
-                <h2>💻</h2>
-                <h3>Computer</h3>
-                <p>Wins: 0</p>
+            <aside class="computer side-panel flex column white">
+                <h2 class="player-icons">💻</h2>
+                <h3 class="player-titles">Computer</h3>
+                <p class="player-scores top-marg">Wins: 0</p>
             </aside>
         </main>
     </body>
