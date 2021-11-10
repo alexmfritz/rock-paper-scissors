@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-panel {
+    width: 60%;
+    background-color: rgb(177, 19, 19);
+}
+
+.side-panel {
+    width: 20%;
+    background-color: rgb(223, 31, 45);
+}
+
+.choice-card {
+    background-color: rgba(68, 123, 190, .9);
+}
+
+.hidden {
+    display: none;
+}
