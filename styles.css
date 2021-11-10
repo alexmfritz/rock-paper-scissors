@@ -1,9 +1,11 @@
 * {
     margin: 0;
+    color: white;
 }
 
 main {
     height: 100vh;
+    overflow: hidden;
 }
 
 .flex {
@@ -17,14 +19,6 @@ main {
 .column {
     flex-direction: column;
     align-items: center;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.space-even {
-    justify-content: space-evenly;
 }
 
 .center-panel {
@@ -62,23 +56,55 @@ main {
 .choice-button {
     height: 150px;
     width: 300px;
+    padding: 4%;
+    font-size: 14px;
+}
+
+.shadow {
+    box-shadow: 10px 10px 10px black;
 }
 
 .med-image {
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
+}
+
+.game-button {
+    height: 8%;
+    width: 75%;
+}
+
+.radius {
+    border: 0;
+    border-radius: 30%;
 }
 
 .split-height {
     height: 33%;
 }
 
-.top-marg {
+.list-margin {
+    margin-left: -10%;
+}
+
+.small-top-marg {
     margin-top: 2%;
 }
 
-.bottom-marg {
-    margin-bottom: 8%;
+.big-top-marg {
+    margin-top: 30%;
+}
+
+.small-bottom-marg {
+    margin-bottom: 2%;
+}
+
+.med-bottom-marg {
+    margin-bottom: 5%;
+}
+
+.big-bottom-marg {
+    margin-bottom: 10%;
 }
 
 .title {
@@ -87,10 +113,6 @@ main {
 
 .text-center {
     text-align: center;
-}
-
-.white {
-    color: #FFF;
 }
 
 .hidden {
