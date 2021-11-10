@@ -32,6 +32,7 @@ var game;
 
 classicButton.addEventListener('click', displayClassic);
 spicyButton.addEventListener('click', displaySpicy);
+changeGameButton.addEventListener('click', pickNewGame);
 
 // event handlers
 
@@ -45,6 +46,13 @@ function displaySpicy(event) {
     show(spicyChoiceImages);
     hide(classicButton);
     hide(spicyButton);
+};
+
+function pickNewGame(event) {
+    hide(classicChoiceImages);
+    hide(spicyChoiceImages);
+    show(classicButton);
+    show(spicyButton);
 };
 
 // helper functions
