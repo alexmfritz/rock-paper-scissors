@@ -6,40 +6,43 @@
     </head>
     <body>
         <main class="flex row">
-            <aside class="user side-panel flex column white">
+            <aside class="user side-panel flex column">
                 <h2 class="player-icons">👩🏻‍💻</h2>
                 <h3 class="player-titles">Human</h3>
-                <p class="player-scores top-marg">Wins: 0</p>
-                <button class="change-game-button hidden">CHANGE GAME?</button>
+                <p class="player-scores small-top-marg">Wins: 0</p>
+                <button class="change game-button choice-card radius shadow big-top-marg cursor hidden">CHANGE GAME?</button>
             </aside>
-            <section class="game center-panel flex column space-between">
-                <section class="split-height top-marg text-center white">
+            <section class="game center-panel flex column">
+                <section class="split-height small-top-marg text-center">
                     <h1 class="title">Rock, Paper, Scissors</h1>
-                    <h3 class="top-marg">Choose your game!</h3>
+                    <h3 class="player-titles small-top-marg">Choose your game!</h3>
                 </section>
                 <section class="flex row split-height">
-                    <section>
-                        <button class="no-back"><img class="med-image" src="assets/ironman.png" /></button>
-                        <button class="no-back"><img class="med-image" src="assets/capam.png" /></button>
-                        <button class="no-back"><img class="med-image" src="assets/thor.png" /></button>
+                    <section class="hidden">
+                        <input type="image" name="options" class="no-back med-image" src="assets/ironman.png" alt="iron man logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/capam.png" alt="captain america shield logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/thor.png" alt="thor's hammer logo" />
                     </section>
                     <section class="hidden">
-                        <button class="no-back"><img class="med-image" src="assets/hulk.png" /></button>
-                        <button class="no-back"><img class="med-image" src="assets/blackwidow.png" /></button>
+                        <input type="image" name="options" class="no-back med-image" src="assets/ironman.png" alt="iron man logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/capam.png" alt="captain america shield logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/thor.png" alt="thor's hammer logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/hulk.png" alt="hulk logo" />
+                        <input type="image" name="options" class="no-back med-image" src="assets/blackwidow.png" alt="black widow logo" />
                     </section>
                 </section>
-                <section class="flex column space-even split-height">
-                    <button class="choice-button choice-card flex column bottom-marg white">
-                        <h4> CLASSIC </h4>
-                        <ul>
+                <section class="flex column split-height med-bottom-marg">
+                    <button class="choice-button choice-card flex column shadow radius big-bottom-marg cursor">
+                        <h4 class="small-bottom-marg"> CLASSIC </h4>
+                        <ul class="list-margin">
                             <li>THOR > IRON MAN</li>
                             <li>CAPT AM > THOR</li>
                             <li>IRON MAN > CAPT AM</li>
                         </ul>
                     </button>
-                    <button class="choice-button choice-card flex column bottom-marg white">
-                        <h4>🔥 SPICY 🔥</h4>
-                        <ul>
+                    <button class="choice-button choice-card flex column shadow radius cursor">
+                        <h4 class="small-bottom-marg">🔥 SPICY 🔥</h4>
+                        <ul class="list-margin">
                             <li>THOR > IRON MAN & WIDOW</li>
                             <li>CAPT AM > THOR & WIDOW</li>
                             <li>IRON MAN > CAPT AM & HULK</li>
@@ -49,10 +52,10 @@
                     </button>
                 </section>
             </section>
-            <aside class="computer side-panel flex column white">
+            <aside class="computer side-panel flex column">
                 <h2 class="player-icons">💻</h2>
                 <h3 class="player-titles">Computer</h3>
-                <p class="player-scores top-marg">Wins: 0</p>
+                <p class="player-scores small-top-marg">Wins: 0</p>
             </aside>
         </main>
     </body>
