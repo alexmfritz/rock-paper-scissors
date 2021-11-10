@@ -30,6 +30,9 @@ var game;
 
 // event listeners
 
+window.addEventListener('load', function() {
+    game = new Game();
+})
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
