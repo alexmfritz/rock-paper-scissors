@@ -18,21 +18,21 @@
                     <h3 class="player-titles small-top-marg">Choose your game!</h3>
                 </section>
                 <section class="flex row split-height">
-                    <section class="hidden">
-                        <input type="image" name="options" class="no-back med-image" src="assets/ironman.png" alt="iron man logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/capam.png" alt="captain america shield logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/thor.png" alt="thor's hammer logo" />
+                    <section class="classic hidden">
+                        <input type="image" name="options" class="no-back med-image" id="ironManClassic" src="assets/ironman.png" alt="iron man logo" />
+                        <input type="image" name="options" class="no-back med-image" id="capAmClassic" src="assets/capam.png" alt="captain america shield logo" />
+                        <input type="image" name="options" class="no-back med-image" id="thorClassic" src="assets/thor.png" alt="thor's hammer logo" />
                     </section>
-                    <section class="hidden">
-                        <input type="image" name="options" class="no-back med-image" src="assets/ironman.png" alt="iron man logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/capam.png" alt="captain america shield logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/thor.png" alt="thor's hammer logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/hulk.png" alt="hulk logo" />
-                        <input type="image" name="options" class="no-back med-image" src="assets/blackwidow.png" alt="black widow logo" />
+                    <section class="spicy hidden">
+                        <input type="image" name="options" class="no-back med-image" id="ironManSpicy" src="assets/ironman.png" alt="iron man logo" />
+                        <input type="image" name="options" class="no-back med-image" id="capAmSpicy" src="assets/capam.png" alt="captain america shield logo" />
+                        <input type="image" name="options" class="no-back med-image" id="thorSpicy" src="assets/thor.png" alt="thor's hammer logo" />
+                        <input type="image" name="options" class="no-back med-image" id="hulkSpicy" src="assets/hulk.png" alt="hulk logo" />
+                        <input type="image" name="options" class="no-back med-image" id="widowSpicy" src="assets/blackwidow.png" alt="black widow logo" />
                     </section>
                 </section>
                 <section class="flex column split-height med-bottom-marg">
-                    <button class="choice-button choice-card flex column shadow radius big-bottom-marg cursor">
+                    <button class="choice-button choice-card flex column shadow radius big-bottom-marg cursor" id="classicButton">
                         <h4 class="small-bottom-marg"> CLASSIC </h4>
                         <ul class="list-margin">
                             <li>THOR > IRON MAN</li>
@@ -40,7 +40,7 @@
                             <li>IRON MAN > CAPT AM</li>
                         </ul>
                     </button>
-                    <button class="choice-button choice-card flex column shadow radius cursor">
+                    <button class="choice-button choice-card flex column shadow radius cursor" id="spicyButton">
                         <h4 class="small-bottom-marg">🔥 SPICY 🔥</h4>
                         <ul class="list-margin">
                             <li>THOR > IRON MAN & WIDOW</li>
