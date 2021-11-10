@@ -15,3 +15,11 @@ var widowSpicy = document.getElementById('widowSpicy');
 var classicButton = documewnt.querySelector('.classic-button');
 var spicyButton = document.querySelector('.spicy-button');
 var changeGameButton = document.querySelector('.game-button');
+// player
+var playerEmoji = document.getElementById('playerEmoji');
+var playerName = document.getElementById('playerName');
+var playerWins = document.getElementById('playerWin');
+// computer
+var compEmoji = document.getElementById('compEmoji');
+var compName = document.getElementById('compName');
+var compWins = document.getElementById('compWin');
