@@ -11,3 +11,7 @@ var capAmSpicy = document.getElementById('capAmSpicy');
 var thorSpicy = document.getElementById('thorSpicy');
 var hulkSpicy = document.getElementById('hulkSpicy');
 var widowSpicy = document.getElementById('widowSpicy');
+// buttons
+var classicButton = documewnt.querySelector('.classic-button');
+var spicyButton = document.querySelector('.spicy-button');
+var changeGameButton = document.querySelector('.game-button');
