@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-even {
+    justify-content: space-evenly;
+}
+
+.center-panel {
+    width: 60%;
+    background-color: rgb(177, 19, 19);
+}
+
+.side-panel {
+    width: 20%;
+    background-color: rgb(223, 31, 45);
+}
+
+.choice-card {
+    background-color: rgba(68, 123, 190, .9);
+}
+
+.player-icons {
+    font-size: 400%;
+    margin-top: 15%;
+}
+
+.player-titles {
+    font-size: 200%;
+}
+
+.player-scores {
+    font-size: 150%;
+}
+
+.no-back {
+    background: none;
+    border: 0;
+}
+
+.choice-button {
+    height: 150px;
+    width: 300px;
+}
+
+.med-image {
+    height: 125px;
+    width: 125px;
+}
+
+.split-height {
+    height: 33%;
+}
+
+.top-marg {
+    margin-top: 2%;
+}
+
+.bottom-marg {
+    margin-bottom: 8%;
+}
+
+.title {
+    font-size: 450%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.white {
+    color: #FFF;
+}
+
+.hidden {
+    display: none;
+}
