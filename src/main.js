@@ -30,9 +30,6 @@ var game;
 
 // event listeners
 
-window.addEventListener('load', function() {
-    game = new Game();
-})
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
@@ -40,23 +37,16 @@ changeGameButton.addEventListener('click', pickNewGame);
 // event handlers
 
 
-
-function startNewGame(type) {
-    game.playGame(type);
-};
-
 function startClassic(event) {
     show(classicChoiceImages);
     hide(classicButton);
     hide(spicyButton);
-    startNewGame('classic');
 };
 
 function startSpicy(event) {
     show(spicyChoiceImages);
     hide(classicButton);
     hide(spicyButton);
-    startNewGame('spicy');
 };
 
 function pickNewGame(event) {
