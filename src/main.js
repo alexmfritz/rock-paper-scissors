@@ -1,16 +1,20 @@
 // images
 var classicChoiceImages = document.querySelector('.classic');
 var spicyChoiceImages = document.querySelector('.spicy');
-// classic inputs
+var resultsImages = document.querySelector('.choice');
+// classic images
 var ironManClassic = document.getElementById('ironManClassic');
 var capAmClassic = document.getElementById('capAmClassic');
 var thorClassic = document.getElementById('thorClassic');
-// spicy inputs
+// spicy images
 var ironManSpicy = document.getElementById('ironManSpicy');
 var capAmSpicy = document.getElementById('capAmSpicy');
 var thorSpicy = document.getElementById('thorSpicy');
 var hulkSpicy = document.getElementById('hulkSpicy');
 var widowSpicy = document.getElementById('widowSpicy');
+// chosen images
+var playerChoice = document.querySelector('.player-choice');
+var computerChoice = document.querySelector('.computer-choice');
 // buttons
 var classicButton = document.querySelector('.classic-button');
 var spicyButton = document.querySelector('.spicy-button');
@@ -29,15 +33,45 @@ var winnerAnouncement = document.getElementById('winnerAnnounce');
 var game;
 
 // event listeners
-window.addEventListener('click', function() {
+window.addEventListener('load', function() {
     game = new Game();
-    playerWins.innerText = `Wins: ${game.player.wins}`;
-    updateInfo(playerWins, `Wins: ${game.player.wins}`);
-    updateInfo(compWins, `Wins: ${game.computer.wins}`);
+    showStats();
 });
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
+ironManClassic.addEventListener('click', function(event) {
+    playGame('iron man');
+    displayBothFighters();
+});
+capAmClassic.addEventListener('click', function(event) {
+    playGame('captain america');
+    displayBothFighters();
+});
+thorClassic.addEventListener('click', function(event) {
+    playGame('thor');
+    displayBothFighters();
+});
+ironManSpicy.addEventListener('click', function(event) {
+    playGame('iron man');
+    displayBothFighters();
+});
+capAmSpicy.addEventListener('click', function(event) {
+    playGame('captain america');
+    displayBothFighters();
+});
+thorSpicy.addEventListener('click', function(event) {
+    playGame('thor');
+    displayBothFighters();
+});
+hulkSpicy.addEventListener('click', function(event) {
+    playGame('the hulk');
+    displayBothFighters();
+});
+widowSpicy.addEventListener('click', function(event) {
+    playGame('black widow');
+    displayBothFighters();
+});
 
 // event handlers
 
@@ -45,8 +79,6 @@ function playGame(choice) {
     show(changeGameButton);
     game.player.takeTurn(choice);
     game.computer.takeTurn();
-    updateInfo(playerWins, `Wins: ${game.player.wins}`);
-    updateInfo(compWins, `Wins: ${game.computer.wins}`);
 };
 
 function beginGame(type) {
@@ -57,21 +89,63 @@ function startClassic(event) {
     show(classicChoiceImages);
     hide(classicButton);
     hide(spicyButton);
+    hide(changeGameButton);
     beginGame('classic');
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
 };
 
 function startSpicy(event) {
     show(spicyChoiceImages);
     hide(classicButton);
     hide(spicyButton);
+    hide(changeGameButton);
     beginGame('spicy');
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
+};
+
+function displayBothFighters() {
+    winnerAnouncement.innerText = game.determineWinner();
+    displayFighters(playerChoice, `${game.player.choice}`);
+    displayFighters(computerChoice, `${game.computer.choice}`);
+};
+
+function displayFighters(element, opponent) {
+    show(resultsImages);
+    hide(classicChoiceImages);
+    hide(spicyChoiceImages);
+    if (opponent === 'iron man') {
+        element.src = "assets/ironman.png";
+        element.alt = "iron man logo";
+    } else if (opponent === 'captain america') {
+        element.src = "assets/capam.png";
+        element.alt = "captain america shield logo";
+    } else if (opponent === 'thor') {
+        element.src = "assets/thor.png";
+        element.alt = "thor\s hammer logo";
+    } else if (opponent === 'the hulk') {
+        element.src = "assets/hulk.png";
+        element.alt = "hulk logo";
+    } else if (opponent === 'black widow') {
+        element.src = "assets/blackwidow.png";
+        element.alt = "black widow logo";
+    }
 };
 
 function pickNewGame(event) {
     hide(classicChoiceImages);
     hide(spicyChoiceImages);
+    hide(resultsImages);
     show(classicButton);
     show(spicyButton);
+};
+
+function showStats() {
+    updateInfo(playerName, `${game.player.name}`);
+    updateInfo(playerEmoji, `${game.player.emoji}`);
+    updateInfo(playerWins, `Wins: ${game.player.wins}`);
+    updateInfo(compName, `${game.computer.name}`);
+    updateInfo(compEmoji, `${game.computer.emoji}`);
+    updateInfo(compWins, `Wins: ${game.computer.wins}`);
 };
 
 // helper functions
