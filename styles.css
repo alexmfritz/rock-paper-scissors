@@ -116,7 +116,7 @@ main {
 }
 
 .cursor {
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/toons/too-7/too682.cur"), auto;
 }
 
 .hidden {
