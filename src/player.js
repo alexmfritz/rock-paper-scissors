@@ -4,13 +4,13 @@ class Player {
         this.name = name;
         this.emoji = emoji;
         this.wins = 0;
-        this.choice;
+        this.choice = null;
     }
     takeTurn(decision) {
         if (!decision) {
-            this.choice.getRandomIndex(this.choice);
+            return game.choices[getRandomIndex(game.choices)];
         }
-        this.choice = decision;
+        return this.choice = decision;
     }
     saveWinsToStorage() {
         var storedWins = this.wins;
