@@ -1,6 +1,7 @@
 * {
     margin: 0;
     color: white;
+    cursor: url("https://cur.cursors-4u.net/toons/too-10/too977.png"), auto;
 }
 
 main {
@@ -115,8 +116,30 @@ main {
     text-align: center;
 }
 
-.cursor {
-    cursor: url("https://cur.cursors-4u.net/toons/too-7/too682.cur"), auto;
+.iron-cursor {
+    cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic3.cur"), auto;
+}
+
+.cap-cursor {
+    cursor:  url("https://ani.cursors-4u.net/comics/mic-1/mic14.cur"), auto;
+}
+
+.thor-cursor {
+    cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic12.cur"), auto;
+}
+
+.hulk-cursor {
+    cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic17.cur"), auto;
+}
+
+.widow-cursor {
+   cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic13.cur"), auto
+}
+
+button:hover {
+    -webkit-box-shadow: 0px 0px 100px 0px rgba(255,165,0,1);
+    -moz-box-shadow: 0px 0px 100px 0px rgba(255,165,0,1);
+    box-shadow: 0px 0px 100px 0px rgba(255,165,0,1);
 }
 
 .hidden {
