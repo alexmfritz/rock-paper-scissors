@@ -14,7 +14,7 @@ class Game {
         };
     }
     determineWinner() {
-        if (this.player.choice === this.player.choice) {
+        if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return 'It\s a draw!';
         } else if ((this.player.choice === 'iron man') && (this.computer.choice === 'captain america') || (this.player.choice === 'iron man') && (this.computer.choice === 'the hulk')) {
