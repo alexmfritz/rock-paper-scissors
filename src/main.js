@@ -29,24 +29,42 @@ var winnerAnouncement = document.getElementById('winnerAnnounce');
 var game;
 
 // event listeners
-
+window.addEventListener('click', function() {
+    game = new Game();
+    playerWins.innerText = `Wins: ${game.player.wins}`;
+    updateInfo(playerWins, `Wins: ${game.player.wins}`);
+    updateInfo(compWins, `Wins: ${game.computer.wins}`);
+});
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
 
 // event handlers
 
+function playGame(choice) {
+    show(changeGameButton);
+    game.player.takeTurn(choice);
+    game.computer.takeTurn();
+    updateInfo(playerWins, `Wins: ${game.player.wins}`);
+    updateInfo(compWins, `Wins: ${game.computer.wins}`);
+};
+
+function beginGame(type) {
+    game.playGame(type);
+};
 
 function startClassic(event) {
     show(classicChoiceImages);
     hide(classicButton);
     hide(spicyButton);
+    beginGame('classic');
 };
 
 function startSpicy(event) {
     show(spicyChoiceImages);
     hide(classicButton);
     hide(spicyButton);
+    beginGame('spicy');
 };
 
 function pickNewGame(event) {
@@ -57,6 +75,10 @@ function pickNewGame(event) {
 };
 
 // helper functions
+
+function updateInfo(element, update) {
+    element.innerText = update;
+};
 
 function show(element) {
     element.classList.remove('hidden');
