@@ -60,10 +60,22 @@ widowLogo.addEventListener('click', function(event) {
 function playGame(choice) {
     show(changeGameButton, 'hidden');
     takeBothTurns(choice);
+    setTimeout(replayGame, 1500);
 };
 
 function clearGame() {
     game.choices = ['iron man', 'captain america', 'thor'];
+};
+
+function replayGame() {
+    hide(resultsImages, 'hidden');
+    if (game.type === 'spicy') {
+        show(gameChoiceImages, 'hidden');
+    } else if (game.type === 'classic') {
+        show(gameChoiceImages, 'hidden');
+        hide(hulkLogo, 'visible');
+        hide(widowLogo, 'visible');
+    };
 };
 
 function takeBothTurns(choice) {
@@ -120,7 +132,7 @@ function displayFighters(element, opponent) {
     } else if (opponent === 'black widow') {
         element.src = "assets/blackwidow.png";
         element.alt = "black widow logo";
-    }
+    };
 };
 
 function pickNewGame(event) {
