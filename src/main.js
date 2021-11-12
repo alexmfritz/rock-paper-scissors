@@ -80,6 +80,10 @@ function playGame(choice) {
     takeBothTurns(choice);
 };
 
+function clearGame() {
+    game.choices = ['iron man', 'captain america', 'thor'];
+};
+
 function takeBothTurns(choice) {
     game.player.takeTurn(choice);
     game.computer.takeTurn();
@@ -141,6 +145,7 @@ function pickNewGame(event) {
     hide(resultsImages);
     show(classicButton);
     show(spicyButton);
+    clearGame();
 };
 
 function showStats() {
