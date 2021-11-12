@@ -4,11 +4,11 @@ class Player {
         this.name = name;
         this.emoji = emoji;
         this.wins = 0;
-        this.choice = null;
+        this.choice;
     }
     takeTurn(decision) {
         if (!decision) {
-            return game.choices[getRandomIndex(game.choices)];
+            return this.choice = game.choices[getRandomIndex(game.choices)];
         }
         return this.choice = decision;
     }

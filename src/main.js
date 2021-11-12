@@ -77,6 +77,10 @@ widowSpicy.addEventListener('click', function(event) {
 
 function playGame(choice) {
     show(changeGameButton);
+    takeBothTurns(choice);
+};
+
+function takeBothTurns(choice) {
     game.player.takeTurn(choice);
     game.computer.takeTurn();
 };
