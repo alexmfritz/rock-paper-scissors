@@ -153,6 +153,10 @@ button:hover {
     box-shadow: 0px 0px 100px 0px rgb(240, 236, 20);
 }
 
+.visible {
+    visibility: hidden;
+}
+
 .hidden {
     display: none;
 }
