@@ -74,7 +74,6 @@ widowSpicy.addEventListener('click', function(event) {
 });
 
 // event handlers
-
 function playGame(choice) {
     show(changeGameButton);
     takeBothTurns(choice);
@@ -111,6 +110,7 @@ function displayBothFighters() {
     winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
+    showStats();
 };
 
 function displayFighters(element, opponent) {
@@ -146,9 +146,11 @@ function pickNewGame(event) {
 function showStats() {
     updateInfo(playerName, `${game.player.name}`);
     updateInfo(playerEmoji, `${game.player.emoji}`);
+    game.player.retrieveWinsFromStorage();
     updateInfo(playerWins, `Wins: ${game.player.wins}`);
     updateInfo(compName, `${game.computer.name}`);
     updateInfo(compEmoji, `${game.computer.emoji}`);
+    game.computer.retrieveWinsFromStorage();
     updateInfo(compWins, `Wins: ${game.computer.wins}`);
 };
 
