@@ -1,17 +1,12 @@
-// images
-var classicChoiceImages = document.querySelector('.classic');
-var spicyChoiceImages = document.querySelector('.spicy');
+// image views
+var gameChoiceImages = document.querySelector('.game-logos');
 var resultsImages = document.querySelector('.choice');
-// classic images
-var ironManClassic = document.getElementById('ironManClassic');
-var capAmClassic = document.getElementById('capAmClassic');
-var thorClassic = document.getElementById('thorClassic');
-// spicy images
-var ironManSpicy = document.getElementById('ironManSpicy');
-var capAmSpicy = document.getElementById('capAmSpicy');
-var thorSpicy = document.getElementById('thorSpicy');
-var hulkSpicy = document.getElementById('hulkSpicy');
-var widowSpicy = document.getElementById('widowSpicy');
+// choice images
+var hulkLogo = document.getElementById('hulk');
+var ironManLogo = document.getElementById('ironMan');
+var capAmLogo = document.getElementById('capAm');
+var thorLogo = document.getElementById('thor');
+var widowLogo = document.getElementById('widow');
 // chosen images
 var playerChoice = document.querySelector('.player-choice');
 var computerChoice = document.querySelector('.computer-choice');
@@ -40,42 +35,30 @@ window.addEventListener('load', function() {
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
-ironManClassic.addEventListener('click', function(event) {
+ironManLogo.addEventListener('click', function(event) {
     playGame('iron man');
     displayBothFighters();
 });
-capAmClassic.addEventListener('click', function(event) {
+capAmLogo.addEventListener('click', function(event) {
     playGame('captain america');
     displayBothFighters();
 });
-thorClassic.addEventListener('click', function(event) {
+thorLogo.addEventListener('click', function(event) {
     playGame('thor');
     displayBothFighters();
 });
-ironManSpicy.addEventListener('click', function(event) {
-    playGame('iron man');
-    displayBothFighters();
-});
-capAmSpicy.addEventListener('click', function(event) {
-    playGame('captain america');
-    displayBothFighters();
-});
-thorSpicy.addEventListener('click', function(event) {
-    playGame('thor');
-    displayBothFighters();
-});
-hulkSpicy.addEventListener('click', function(event) {
+hulkLogo.addEventListener('click', function(event) {
     playGame('the hulk');
     displayBothFighters();
 });
-widowSpicy.addEventListener('click', function(event) {
+widowLogo.addEventListener('click', function(event) {
     playGame('black widow');
     displayBothFighters();
 });
 
 // event handlers
 function playGame(choice) {
-    show(changeGameButton);
+    show(changeGameButton, 'hidden');
     takeBothTurns(choice);
 };
 
@@ -93,19 +76,21 @@ function beginGame(type) {
 };
 
 function startClassic(event) {
-    show(classicChoiceImages);
-    hide(classicButton);
-    hide(spicyButton);
-    hide(changeGameButton);
+    show(gameChoiceImages, 'hidden');
+    hide(classicButton, 'hidden');
+    hide(spicyButton, 'hidden');
+    hide(changeGameButton, 'hidden');
     beginGame('classic');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
 };
 
 function startSpicy(event) {
-    show(spicyChoiceImages);
-    hide(classicButton);
-    hide(spicyButton);
-    hide(changeGameButton);
+    show(gameChoiceImages, 'hidden');
+    show(hulkLogo, 'visible');
+    show(widowLogo, 'visible');
+    hide(classicButton, 'hidden');
+    hide(spicyButton, 'hidden');
+    hide(changeGameButton, 'hidden');
     beginGame('spicy');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
 };
@@ -118,9 +103,8 @@ function displayBothFighters() {
 };
 
 function displayFighters(element, opponent) {
-    show(resultsImages);
-    hide(classicChoiceImages);
-    hide(spicyChoiceImages);
+    show(resultsImages, 'hidden');
+    hide(gameChoiceImages, 'hidden');
     if (opponent === 'iron man') {
         element.src = "assets/ironman.png";
         element.alt = "iron man logo";
@@ -140,12 +124,13 @@ function displayFighters(element, opponent) {
 };
 
 function pickNewGame(event) {
-    hide(classicChoiceImages);
-    hide(spicyChoiceImages);
-    hide(resultsImages);
-    hide(changeGameButton);
-    show(classicButton);
-    show(spicyButton);
+    hide(gameChoiceImages, 'hidden');
+    hide(hulkLogo, 'visible');
+    hide(widowLogo, 'visible');
+    hide(resultsImages, 'hidden');
+    hide(changeGameButton, 'hidden');
+    show(classicButton, 'hidden');
+    show(spicyButton, 'hidden');
     clearGame();
 };
 
@@ -166,12 +151,12 @@ function updateInfo(element, update) {
     element.innerText = update;
 };
 
-function show(element) {
-    element.classList.remove('hidden');
+function show(element, rule) {
+    element.classList.remove(rule);
 };
 
-function hide(element) {
-    element.classList.add('hidden');
+function hide(element, rule) {
+    element.classList.add(rule);
 };
 
 function getRandomIndex(array) {
