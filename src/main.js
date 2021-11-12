@@ -143,6 +143,7 @@ function pickNewGame(event) {
     hide(classicChoiceImages);
     hide(spicyChoiceImages);
     hide(resultsImages);
+    hide(changeGameButton);
     show(classicButton);
     show(spicyButton);
     clearGame();
