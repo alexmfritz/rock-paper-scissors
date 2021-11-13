@@ -48,17 +48,8 @@ gameChoiceImages.addEventListener('click', function(event) {
         playGame(event.target.id);
         displayEmoji(event);
     }
-})
+});
 
-function displayEmoji(event) {
-    show(event.target.nextElementSibling, 'visible');
-}
-
-function clearEmojis() {
-    for(var i = 0; i < allEmojis.length; i ++) {
-        allEmojis[i].classList.add('visible');
-    }
-}
 
 // event handlers
 function playGame(choice) {
@@ -75,12 +66,16 @@ function clearGame() {
 function replayGame() {
     hide(resultsImages, 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
+    decideReplay();
+};
+
+function decideReplay() {
     if (game.type === 'spicy') {
         show(gameChoiceImages, 'hidden');
+        displayClassic();
     } else if (game.type === 'classic') {
         show(gameChoiceImages, 'hidden');
-        hide(hulkLogo, 'visible');
-        hide(widowLogo, 'visible');
+        displaySpicy();
     };
 };
 
@@ -93,31 +88,50 @@ function beginGame(type) {
     game.playGame(type);
 };
 
-function startClassic(event) {
-    show(gameChoiceImages, 'hidden');
-    hide(classicButton, 'hidden');
-    hide(spicyButton, 'hidden');
-    hide(changeGameButton, 'hidden');
+function startClassic() {
+    hideButtons();
     beginGame('classic');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
+    displayClassic();
 };
 
-function startSpicy(event) {
-    show(gameChoiceImages, 'hidden');
-    show(hulkLogo, 'visible');
-    show(widowLogo, 'visible');
-    hide(classicButton, 'hidden');
-    hide(spicyButton, 'hidden');
-    hide(changeGameButton, 'hidden');
+function startSpicy() {
+    hideButtons();
     beginGame('spicy');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
+    displaySpicy();
+};
+
+function displayClassic() {
+    gameChoiceImages.innerHTML = ``;
+    for(var i = 0; i < game.choices.length; i++) {
+        gameChoiceImages.innerHTML += `
+            <section class="flex column">
+                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+             </section>
+        
+        `;
+    };
+};
+
+function displaySpicy() {
+    gameChoiceImages.innerHTML = ``;
+    for(var i = 0; i < game.choices.length; i++) {
+        gameChoiceImages.innerHTML += `
+            <section class="flex column">
+                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+             </section>
+        
+        `;
+    };
 };
 
 function displayBothFighters() {
     winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
-    clearEmojis();
     showStats();
 };
 
@@ -137,15 +151,17 @@ function displayFighters(element, opponent) {
         element.src = "assets/hulk.png";
         element.alt = "hulk logo";
     } else if (opponent === 'widow') {
-        element.src = "assets/blackwidow.png";
+        element.src = "assets/widow.png";
         element.alt = "black widow logo";
     };
 };
 
+function displayEmoji(event) {
+    show(event.target.nextElementSibling, 'visible');
+};
+
 function pickNewGame(event) {
     hide(gameChoiceImages, 'hidden');
-    hide(hulkLogo, 'visible');
-    hide(widowLogo, 'visible');
     hide(resultsImages, 'hidden');
     hide(changeGameButton, 'hidden');
     show(classicButton, 'hidden');
@@ -154,14 +170,29 @@ function pickNewGame(event) {
 };
 
 function showStats() {
+    showPlayerStats();
+    showComputerStats();
+};
+
+function showPlayerStats() {
     updateInfo(playerName, `${game.player.name}`);
     updateInfo(playerEmoji, `${game.player.emoji}`);
     game.player.retrieveWinsFromStorage();
     updateInfo(playerWins, `Wins: ${game.player.wins}`);
+};
+
+function showComputerStats() {
     updateInfo(compName, `${game.computer.name}`);
     updateInfo(compEmoji, `${game.computer.emoji}`);
     game.computer.retrieveWinsFromStorage();
     updateInfo(compWins, `Wins: ${game.computer.wins}`);
+};
+
+function hideButtons() {
+    show(gameChoiceImages, 'hidden');
+    hide(classicButton, 'hidden');
+    hide(spicyButton, 'hidden');
+    hide(changeGameButton, 'hidden');
 };
 
 // helper functions
