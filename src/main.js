@@ -48,17 +48,8 @@ gameChoiceImages.addEventListener('click', function(event) {
         playGame(event.target.id);
         displayEmoji(event);
     }
-})
+});
 
-function displayEmoji(event) {
-    show(event.target.nextElementSibling, 'visible');
-}
-
-function clearEmojis() {
-    for(var i = 0; i < allEmojis.length; i ++) {
-        allEmojis[i].classList.add('visible');
-    }
-}
 
 // event handlers
 function playGame(choice) {
@@ -75,12 +66,16 @@ function clearGame() {
 function replayGame() {
     hide(resultsImages, 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
+    decideReplay();
+};
+
+function decideReplay() {
     if (game.type === 'spicy') {
         show(gameChoiceImages, 'hidden');
+        displayClassic();
     } else if (game.type === 'classic') {
         show(gameChoiceImages, 'hidden');
-        hide(hulkLogo, 'visible');
-        hide(widowLogo, 'visible');
+        displaySpicy();
     };
 };
 
@@ -93,25 +88,21 @@ function beginGame(type) {
     game.playGame(type);
 };
 
-function startClassic(event) {
+function startClassic() {
     hideButtons();
     beginGame('classic');
-    gameChoiceImages.innerHTML = ``;
-    for(var i = 0; i < game.choices.length; i++) {
-        gameChoiceImages.innerHTML += `
-            <section class="flex column">
-                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
-                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
-             </section>
-        
-        `
-    }
     updateInfo(winnerAnouncement, 'Choose your fighter!');
+    displayClassic();
 };
 
-function startSpicy(event) {
+function startSpicy() {
     hideButtons();
     beginGame('spicy');
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
+    displaySpicy();
+};
+
+function displayClassic() {
     gameChoiceImages.innerHTML = ``;
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
@@ -120,16 +111,27 @@ function startSpicy(event) {
                 <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
              </section>
         
-        `
-    }
-    updateInfo(winnerAnouncement, 'Choose your fighter!');
-}
+        `;
+    };
+};
+
+function displaySpicy() {
+    gameChoiceImages.innerHTML = ``;
+    for(var i = 0; i < game.choices.length; i++) {
+        gameChoiceImages.innerHTML += `
+            <section class="flex column">
+                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+             </section>
+        
+        `;
+    };
+};
 
 function displayBothFighters() {
     winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
-    clearEmojis();
     showStats();
 };
 
@@ -154,6 +156,10 @@ function displayFighters(element, opponent) {
     };
 };
 
+function displayEmoji(event) {
+    show(event.target.nextElementSibling, 'visible');
+};
+
 function pickNewGame(event) {
     hide(gameChoiceImages, 'hidden');
     hide(resultsImages, 'hidden');
@@ -164,10 +170,18 @@ function pickNewGame(event) {
 };
 
 function showStats() {
+    showPlayerStats();
+    showComputerStats();
+};
+
+function showPlayerStats() {
     updateInfo(playerName, `${game.player.name}`);
     updateInfo(playerEmoji, `${game.player.emoji}`);
     game.player.retrieveWinsFromStorage();
     updateInfo(playerWins, `Wins: ${game.player.wins}`);
+};
+
+function showComputerStats() {
     updateInfo(compName, `${game.computer.name}`);
     updateInfo(compEmoji, `${game.computer.emoji}`);
     game.computer.retrieveWinsFromStorage();
