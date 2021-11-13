@@ -8,7 +8,7 @@
 
 -
 
-## Did you struggling with anything during this branch?
+## Did you struggle with anything during this branch?
 
 -
 
