@@ -35,26 +35,12 @@ window.addEventListener('load', function() {
 classicButton.addEventListener('click', startClassic);
 spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
-ironManLogo.addEventListener('click', function(event) {
-    playGame('iron man');
-    displayBothFighters();
-});
-capAmLogo.addEventListener('click', function(event) {
-    playGame('captain america');
-    displayBothFighters();
-});
-thorLogo.addEventListener('click', function(event) {
-    playGame('thor');
-    displayBothFighters();
-});
-hulkLogo.addEventListener('click', function(event) {
-    playGame('the hulk');
-    displayBothFighters();
-});
-widowLogo.addEventListener('click', function(event) {
-    playGame('black widow');
-    displayBothFighters();
-});
+gameChoiceImages.addEventListener('click', function(event) {
+    if (event.target.classList.contains('med-image')) {
+        playGame(event.target.id);
+        displayBothFighters();
+    }
+})
 
 // event handlers
 function playGame(choice) {
@@ -64,7 +50,7 @@ function playGame(choice) {
 };
 
 function clearGame() {
-    game.choices = ['iron man', 'captain america', 'thor'];
+    game.choices = ['ironMan', 'capAm', 'thor'];
 };
 
 function replayGame() {
@@ -118,19 +104,19 @@ function displayBothFighters() {
 function displayFighters(element, opponent) {
     show(resultsImages, 'hidden');
     hide(gameChoiceImages, 'hidden');
-    if (opponent === 'iron man') {
+    if (opponent === 'ironMan') {
         element.src = "assets/ironman.png";
         element.alt = "iron man logo";
-    } else if (opponent === 'captain america') {
+    } else if (opponent === 'capAm') {
         element.src = "assets/capam.png";
         element.alt = "captain america shield logo";
     } else if (opponent === 'thor') {
         element.src = "assets/thor.png";
         element.alt = "thor\s hammer logo";
-    } else if (opponent === 'the hulk') {
+    } else if (opponent === 'hulk') {
         element.src = "assets/hulk.png";
         element.alt = "hulk logo";
-    } else if (opponent === 'black widow') {
+    } else if (opponent === 'widow') {
         element.src = "assets/blackwidow.png";
         element.alt = "black widow logo";
     };
