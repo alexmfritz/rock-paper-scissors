@@ -93,31 +93,8 @@ function beginGame(type) {
     game.playGame(type);
 };
 
-// function startClassic(event) {
-//     show(gameChoiceImages, 'hidden');
-//     hide(classicButton, 'hidden');
-//     hide(spicyButton, 'hidden');
-//     hide(changeGameButton, 'hidden');
-//     beginGame('classic');
-//     updateInfo(winnerAnouncement, 'Choose your fighter!');
-// };
-
-// function startSpicy(event) {
-//     show(gameChoiceImages, 'hidden');
-//     show(hulkLogo, 'visible');
-//     show(widowLogo, 'visible');
-//     hide(classicButton, 'hidden');
-//     hide(spicyButton, 'hidden');
-//     hide(changeGameButton, 'hidden');
-//     beginGame('spicy');
-//     updateInfo(winnerAnouncement, 'Choose your fighter!');
-// };
-
 function startClassic(event) {
-    show(gameChoiceImages, 'hidden');
-    hide(classicButton, 'hidden');
-    hide(spicyButton, 'hidden');
-    hide(changeGameButton, 'hidden');
+    hideButtons();
     beginGame('classic');
     gameChoiceImages.innerHTML = ``;
     for(var i = 0; i < game.choices.length; i++) {
@@ -133,10 +110,7 @@ function startClassic(event) {
 };
 
 function startSpicy(event) {
-    show(gameChoiceImages, 'hidden');
-    hide(classicButton, 'hidden');
-    hide(spicyButton, 'hidden');
-    hide(changeGameButton, 'hidden');
+    hideButtons();
     beginGame('spicy');
     gameChoiceImages.innerHTML = ``;
     for(var i = 0; i < game.choices.length; i++) {
@@ -198,6 +172,13 @@ function showStats() {
     updateInfo(compEmoji, `${game.computer.emoji}`);
     game.computer.retrieveWinsFromStorage();
     updateInfo(compWins, `Wins: ${game.computer.wins}`);
+};
+
+function hideButtons() {
+    show(gameChoiceImages, 'hidden');
+    hide(classicButton, 'hidden');
+    hide(spicyButton, 'hidden');
+    hide(changeGameButton, 'hidden');
 };
 
 // helper functions
