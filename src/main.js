@@ -7,6 +7,7 @@ var ironManLogo = document.getElementById('ironMan');
 var capAmLogo = document.getElementById('capAm');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
+var allLogos = document.querySelectorAll('.med-image');
 // chosen images
 var playerChoice = document.querySelector('.player-choice');
 var computerChoice = document.querySelector('.computer-choice');
@@ -22,6 +23,13 @@ var playerWins = document.getElementById('playerWin');
 var compEmoji = document.getElementById('compEmoji');
 var compName = document.getElementById('compName');
 var compWins = document.getElementById('compWin');
+// display emojis
+var hulkEmoji = document.getElementById('hulkEmoji');
+var ironManEmoji = document.getElementById('ironManEmoji');
+var capAmEmoji = document.getElementById('capAmEmoji');
+var thorEmoji = document.getElementById('thorEmoji');
+var widowEmoji = document.getElementById('widowEmoji');
+var allEmojis = document.querySelectorAll('.emoji');
 // winner text
 var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
@@ -38,15 +46,26 @@ changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playGame(event.target.id);
-        displayBothFighters();
+        displayEmoji(event);
     }
 })
+
+function displayEmoji(event) {
+    show(event.target.nextElementSibling, 'visible');
+}
+
+function clearEmojis() {
+    for(var i = 0; i < allEmojis.length; i ++) {
+        allEmojis[i].classList.add('visible');
+    }
+}
 
 // event handlers
 function playGame(choice) {
     show(changeGameButton, 'hidden');
     takeBothTurns(choice);
-    setTimeout(replayGame, 1500);
+    setTimeout(displayBothFighters, 1000);
+    setTimeout(replayGame, 2000);
 };
 
 function clearGame() {
@@ -98,6 +117,7 @@ function displayBothFighters() {
     winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
+    clearEmojis();
     showStats();
 };
 
