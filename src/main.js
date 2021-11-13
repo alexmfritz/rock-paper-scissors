@@ -93,25 +93,63 @@ function beginGame(type) {
     game.playGame(type);
 };
 
+// function startClassic(event) {
+//     show(gameChoiceImages, 'hidden');
+//     hide(classicButton, 'hidden');
+//     hide(spicyButton, 'hidden');
+//     hide(changeGameButton, 'hidden');
+//     beginGame('classic');
+//     updateInfo(winnerAnouncement, 'Choose your fighter!');
+// };
+
+// function startSpicy(event) {
+//     show(gameChoiceImages, 'hidden');
+//     show(hulkLogo, 'visible');
+//     show(widowLogo, 'visible');
+//     hide(classicButton, 'hidden');
+//     hide(spicyButton, 'hidden');
+//     hide(changeGameButton, 'hidden');
+//     beginGame('spicy');
+//     updateInfo(winnerAnouncement, 'Choose your fighter!');
+// };
+
 function startClassic(event) {
     show(gameChoiceImages, 'hidden');
     hide(classicButton, 'hidden');
     hide(spicyButton, 'hidden');
     hide(changeGameButton, 'hidden');
     beginGame('classic');
+    gameChoiceImages.innerHTML = ``;
+    for(var i = 0; i < game.choices.length; i++) {
+        gameChoiceImages.innerHTML += `
+            <section class="flex column">
+                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+             </section>
+        
+        `
+    }
     updateInfo(winnerAnouncement, 'Choose your fighter!');
 };
 
 function startSpicy(event) {
     show(gameChoiceImages, 'hidden');
-    show(hulkLogo, 'visible');
-    show(widowLogo, 'visible');
     hide(classicButton, 'hidden');
     hide(spicyButton, 'hidden');
     hide(changeGameButton, 'hidden');
     beginGame('spicy');
+    gameChoiceImages.innerHTML = ``;
+    for(var i = 0; i < game.choices.length; i++) {
+        gameChoiceImages.innerHTML += `
+            <section class="flex column">
+                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+             </section>
+        
+        `
+    }
     updateInfo(winnerAnouncement, 'Choose your fighter!');
-};
+}
 
 function displayBothFighters() {
     winnerAnouncement.innerText = game.determineWinner();
@@ -137,15 +175,13 @@ function displayFighters(element, opponent) {
         element.src = "assets/hulk.png";
         element.alt = "hulk logo";
     } else if (opponent === 'widow') {
-        element.src = "assets/blackwidow.png";
+        element.src = "assets/widow.png";
         element.alt = "black widow logo";
     };
 };
 
 function pickNewGame(event) {
     hide(gameChoiceImages, 'hidden');
-    hide(hulkLogo, 'visible');
-    hide(widowLogo, 'visible');
     hide(resultsImages, 'hidden');
     hide(changeGameButton, 'hidden');
     show(classicButton, 'hidden');
