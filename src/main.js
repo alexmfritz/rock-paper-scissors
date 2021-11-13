@@ -69,6 +69,7 @@ function clearGame() {
 
 function replayGame() {
     hide(resultsImages, 'hidden');
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
     if (game.type === 'spicy') {
         show(gameChoiceImages, 'hidden');
     } else if (game.type === 'classic') {
