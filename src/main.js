@@ -167,6 +167,7 @@ function pickNewGame(event) {
     show(classicButton, 'hidden');
     show(spicyButton, 'hidden');
     clearGame();
+    updateInfo(winnerAnouncement, 'Choose your game!');
 };
 
 function showStats() {
