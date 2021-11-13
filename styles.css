@@ -127,11 +127,11 @@ main {
     text-align: center;
 }
 
-.iron-cursor {
+.ironMan-cursor {
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic3.cur"), auto;
 }
 
-.cap-cursor {
+.capAm-cursor {
     cursor:  url("https://ani.cursors-4u.net/comics/mic-1/mic14.cur"), auto;
 }
 
@@ -144,13 +144,17 @@ main {
 }
 
 .widow-cursor {
-   cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic13.cur"), auto
+   cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic13.cur"), auto;
 }
 
 button:hover {
-    -webkit-box-shadow: 0px 0px 100px 0px rgb(240, 236, 20);
-    -moz-box-shadow: 0px 0px 100px 0px rgb(240, 236, 20);
-    box-shadow: 0px 0px 100px 0px rgb(240, 236, 20);
+    -webkit-box-shadow: 0px 0px 200px 0px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 200px 0px rgb(255, 255, 255);
+    box-shadow: 0px 0px 200px 0px rgb(255, 255, 255);
+}
+
+.med-image:hover {
+    opacity: 0.75;
 }
 
 .visible {
