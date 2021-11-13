@@ -47,7 +47,7 @@ gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playGame(event.target.id);
         displayEmoji(event);
-    }
+    };
 });
 
 
@@ -138,29 +138,15 @@ function displayBothFighters() {
 function displayFighters(element, opponent) {
     show(resultsImages, 'hidden');
     hide(gameChoiceImages, 'hidden');
-    if (opponent === 'ironMan') {
-        element.src = "assets/ironman.png";
-        element.alt = "iron man logo";
-    } else if (opponent === 'capAm') {
-        element.src = "assets/capam.png";
-        element.alt = "captain america shield logo";
-    } else if (opponent === 'thor') {
-        element.src = "assets/thor.png";
-        element.alt = "thor\s hammer logo";
-    } else if (opponent === 'hulk') {
-        element.src = "assets/hulk.png";
-        element.alt = "hulk logo";
-    } else if (opponent === 'widow') {
-        element.src = "assets/widow.png";
-        element.alt = "black widow logo";
-    };
+    element.src = `assets/${opponent}.png`;
+    element.alt = `${opponent} logo`;
 };
 
 function displayEmoji(event) {
     show(event.target.nextElementSibling, 'visible');
 };
 
-function pickNewGame(event) {
+function pickNewGame() {
     hide(gameChoiceImages, 'hidden');
     hide(resultsImages, 'hidden');
     hide(changeGameButton, 'hidden');
