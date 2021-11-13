@@ -4,40 +4,40 @@ class Game {
         this.player = new Player('Human', '👩🏻‍💻');
         this.computer = new Player('Computer', '💻');
         this.type = type || 'classic';
-        this.choices = ['iron man', 'captain america', 'thor'];
+        this.choices = ['ironMan', 'capAm', 'thor'];
         this.winner;
     }
     playGame(type) {
         this.type = type;
         if (this.type === 'spicy') {
-            this.choices.push('the hulk', 'black widow');
+            this.choices.push('hulk', 'widow');
         };
     }
     determineWinner() {
         if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return '😭 It\s a draw! 😭';
-        } else if ((this.player.choice === 'iron man') && (this.computer.choice === 'captain america') || (this.player.choice === 'iron man') && (this.computer.choice === 'the hulk')) {
+        } else if ((this.player.choice === 'ironMan') && (this.computer.choice === 'capAm') || (this.player.choice === 'ironMan') && (this.computer.choice === 'hulk')) {
             this.player.wins++;
             this.winner = this.player.name;
             this.player.saveWinsToStorage();
             return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'captain america') && (this.computer.choice === 'thor') || (this.player.choice === 'captain america') && (this.computer.choice === 'black widow')) {
+        } else if ((this.player.choice === 'capAm') && (this.computer.choice === 'thor') || (this.player.choice === 'capAm') && (this.computer.choice === 'widow')) {
             this.player.wins++;
             this.winner = this.player.name;
             this.player.saveWinsToStorage();
             return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'thor') && (this.computer.choice === 'iron man') || (this.player.choice === "thor") && (this.computer.choice === 'black widow')) {
+        } else if ((this.player.choice === 'thor') && (this.computer.choice === 'ironMan') || (this.player.choice === "thor") && (this.computer.choice === 'widow')) {
             this.player.wins++;
             this.winner = this.player.name;
             this.player.saveWinsToStorage();
             return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'the hulk') && (this.computer.choice === 'thor') || (this.player.choice === 'the hulk') && (this.computer.choice === 'captain america')) {
+        } else if ((this.player.choice === 'hulk') && (this.computer.choice === 'thor') || (this.player.choice === 'hulk') && (this.computer.choice === 'capAm')) {
             this.player.wins++;
             this.winner = this.player.name;
             this.player.saveWinsToStorage();
             return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'black widow') && (this.computer.choice === 'iron man') || (this.player.choice === 'black widow') && (this.computer.choice === 'the hulk')) {
+        } else if ((this.player.choice === 'widow') && (this.computer.choice === 'ironMan') || (this.player.choice === 'widow') && (this.computer.choice === 'hulk')) {
             this.player.wins++;
             this.winner = this.player.name;
             this.player.saveWinsToStorage();
