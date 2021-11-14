@@ -45,7 +45,7 @@ changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playGame(event.target.id);
-        displayEmoji(event);
+        displayEmoji();
     };
 });
 
@@ -54,7 +54,7 @@ gameChoiceImages.addEventListener('click', function(event) {
 function playGame(choice) {
     removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
-    setTimeout(displayBothFighters, 300);
+    setTimeout(displayBothFighters, 500);
     setTimeout(replayGame, 1500);
 };
 
@@ -106,10 +106,9 @@ function displayClassic() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo" />
-                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
-        
         `;
     };
 };
@@ -119,10 +118,9 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo" />
-                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
-        
         `;
     };
 };
@@ -141,8 +139,9 @@ function displayFighters(element, opponent) {
     element.alt = `${opponent} logo`;
 };
 
-function displayEmoji(event) {
-    removeClass([event.target.nextElementSibling], 'visible');
+function displayEmoji() {
+    var logoEmoji = document.querySelector(`#${game.player.choice}Emoji`)
+    logoEmoji.innerText = '👩🏻‍💻';
 };
 
 function pickNewGame() {
