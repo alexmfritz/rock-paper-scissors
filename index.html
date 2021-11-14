@@ -13,7 +13,7 @@
                 <h2 class="player-icons" id="playerEmoji"></h2>
                 <h3 class="player-titles" id="playerName"></h3>
                 <p class="player-scores small-top-marg" id="playerWin"></p>
-                <button class="change game-button choice-card radius shadow large-text big-top-marg hidden">CHANGE GAME?</button>
+                <button class="change game-button choice-card radius shadow large-text big-top-marg hidden" id="changeGameButton">CHANGE GAME?</button>
             </aside>
             <section class="game center-panel flex column">
                 <section class="split-height small-top-marg text-center">
@@ -21,15 +21,15 @@
                     <h3 class="player-titles small-top-marg" id="winnerAnnounce">Choose your game!</h3>
                 </section>
                 <section class="flex row split-height">
-                    <section class="choice hidden">
-                        <image class="player-choice big-image" />
-                        <image class="computer-choice big-image" />
+                    <section class="choice hidden" id="choiceDisplay">
+                        <image class="player-choice big-image" id="playerChoiceDisplay"/>
+                        <image class="computer-choice big-image" id="computerChoiceDisplay"/>
                     </section>
-                    <section class="game-logos flex images hidden">
+                    <section class="game-logos flex images hidden" id="gameLogos">
                     </section>
                 </section>
                 <section class="flex column split-height med-bottom-marg">
-                    <button class="choice-button classic-button choice-card flex column shadow radius big-bottom-marg">
+                    <button class="choice-button classic-button choice-card flex column shadow radius big-bottom-marg" id="classicButton">
                         <h4 class="small-bottom-marg">⚡️ CLASSIC ⚡️</h4>
                         <ul class="list-margin">
                             <p>THOR > IRON MAN</p>
@@ -37,7 +37,7 @@
                             <p>IRON MAN > CAPTAIN AMERICA</p>
                         </ul>
                     </button>
-                    <button class="choice-button spicy-button choice-card flex column shadow radius">
+                    <button class="choice-button spicy-button choice-card flex column shadow radius" id="spicyButton">
                         <h4 class="small-bottom-marg">🔥 SPICY 🔥</h4>
                         <ul class="list-margin">
                             <p>THOR > IRON MAN & BLACK WIDOW</p>
