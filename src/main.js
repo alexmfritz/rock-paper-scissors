@@ -29,7 +29,6 @@ var ironManEmoji = document.getElementById('ironManEmoji');
 var capAmEmoji = document.getElementById('capAmEmoji');
 var thorEmoji = document.getElementById('thorEmoji');
 var widowEmoji = document.getElementById('widowEmoji');
-var allEmojis = document.querySelectorAll('.emoji');
 // winner text
 var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
@@ -53,7 +52,7 @@ gameChoiceImages.addEventListener('click', function(event) {
 
 // event handlers
 function playGame(choice) {
-    show(changeGameButton, 'hidden');
+    removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
     setTimeout(displayBothFighters, 1000);
     setTimeout(replayGame, 2000);
@@ -64,17 +63,17 @@ function clearGame() {
 };
 
 function replayGame() {
-    hide(resultsImages, 'hidden');
+    addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     decideReplay();
 };
 
 function decideReplay() {
     if (game.type === 'spicy') {
-        show(gameChoiceImages, 'hidden');
+        removeClass([gameChoiceImages], 'hidden');
         displayClassic();
     } else if (game.type === 'classic') {
-        show(gameChoiceImages, 'hidden');
+        removeClass([gameChoiceImages], 'hidden');
         displaySpicy();
     };
 };
@@ -136,22 +135,19 @@ function displayBothFighters() {
 };
 
 function displayFighters(element, opponent) {
-    show(resultsImages, 'hidden');
-    hide(gameChoiceImages, 'hidden');
+    removeClass([resultsImages], 'hidden');
+    addClass([gameChoiceImages], 'hidden');
     element.src = `assets/${opponent}.png`;
     element.alt = `${opponent} logo`;
 };
 
 function displayEmoji(event) {
-    show(event.target.nextElementSibling, 'visible');
+    removeClass([event.target.nextElementSibling], 'visible');
 };
 
 function pickNewGame() {
-    hide(gameChoiceImages, 'hidden');
-    hide(resultsImages, 'hidden');
-    hide(changeGameButton, 'hidden');
-    show(classicButton, 'hidden');
-    show(spicyButton, 'hidden');
+    addClass([gameChoiceImages, resultsImages, changeGameButton], 'hidden');
+    removeClass([classicButton, spicyButton], 'hidden');
     clearGame();
     updateInfo(winnerAnouncement, 'Choose your game!');
 };
@@ -176,10 +172,8 @@ function showComputerStats() {
 };
 
 function hideButtons() {
-    show(gameChoiceImages, 'hidden');
-    hide(classicButton, 'hidden');
-    hide(spicyButton, 'hidden');
-    hide(changeGameButton, 'hidden');
+    removeClass([gameChoiceImages], 'hidden');
+    addClass([classicButton, spicyButton, changeGameButton], 'hidden');
 };
 
 // helper functions
@@ -188,12 +182,16 @@ function updateInfo(element, update) {
     element.innerText = update;
 };
 
-function show(element, rule) {
-    element.classList.remove(rule);
+function removeClass(elements, rule) {
+    for (var i = 0; i < elements.length; i ++) {
+        elements[i].classList.remove(rule);
+    };
 };
 
-function hide(element, rule) {
-    element.classList.add(rule);
+function addClass(elements, rule) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.add(rule);
+    };
 };
 
 function getRandomIndex(array) {
