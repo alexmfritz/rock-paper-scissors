@@ -54,8 +54,8 @@ gameChoiceImages.addEventListener('click', function(event) {
 function playGame(choice) {
     removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
-    setTimeout(displayBothFighters, 1000);
-    setTimeout(replayGame, 2000);
+    setTimeout(displayBothFighters, 300);
+    setTimeout(replayGame, 1500);
 };
 
 function clearGame() {
@@ -106,7 +106,7 @@ function displayClassic() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo" />
                 <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
              </section>
         
@@ -119,7 +119,7 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo" />
                 <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
              </section>
         
