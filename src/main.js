@@ -54,8 +54,8 @@ function playGame(choice) {
     takeBothTurns(choice);
     displayEmoji();
     disableButtons();
-    setTimeout(displayBothFighters, 500);
-    setTimeout(replayGame, 1500);
+    setTimeout(displayBothFighters, 1500);
+    setTimeout(replayGame, 3000);
 };
 
 function clearGame() {
@@ -104,6 +104,7 @@ function startSpicy() {
 function disableButtons() {
     for(var i = 0; i < allButtons.length; i++) {
         allButtons[i].disabled = true;
+        addClass([allButtons[i]], 'opacity');
     };
 };
 
