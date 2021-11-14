@@ -1,6 +1,6 @@
 // image views
-var gameChoiceImages = document.querySelector('.game-logos');
-var resultsImages = document.querySelector('.choice');
+var gameChoiceImages = document.getElementById('gameLogos');
+var resultsImages = document.getElementById('choiceDisplay');
 // choice images
 var hulkLogo = document.getElementById('hulk');
 var ironManLogo = document.getElementById('ironMan');
@@ -9,12 +9,12 @@ var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
 var allLogos = document.querySelectorAll('.med-image');
 // chosen images
-var playerChoice = document.querySelector('.player-choice');
-var computerChoice = document.querySelector('.computer-choice');
+var playerChoice = document.getElementById('playerChoiceDisplay');
+var computerChoice = document.getElementById('computerChoiceDisplay');
 // buttons
-var classicButton = document.querySelector('.classic-button');
-var spicyButton = document.querySelector('.spicy-button');
-var changeGameButton = document.querySelector('.game-button');
+var classicButton = document.getElementById('classicButton');
+var spicyButton = document.getElementById('spicyButton');
+var changeGameButton = document.getElementById('changeGameButton');
 // player
 var playerEmoji = document.getElementById('playerEmoji');
 var playerName = document.getElementById('playerName');
