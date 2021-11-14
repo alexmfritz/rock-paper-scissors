@@ -7,7 +7,7 @@ var ironManLogo = document.getElementById('ironMan');
 var capAmLogo = document.getElementById('capAm');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allLogos = document.querySelectorAll('.med-image');
+var allButtons = document.getElementsByClassName('med-image');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
@@ -45,15 +45,15 @@ changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playGame(event.target.id);
-        displayEmoji();
     };
 });
-
 
 // event handlers
 function playGame(choice) {
     removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
+    displayEmoji();
+    disableButtons();
     setTimeout(displayBothFighters, 500);
     setTimeout(replayGame, 1500);
 };
@@ -99,6 +99,12 @@ function startSpicy() {
     beginGame('spicy');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     displaySpicy();
+};
+
+function disableButtons() {
+    for(var i = 0; i < allButtons.length; i++) {
+        allButtons[i].disabled = true;
+    };
 };
 
 function displayClassic() {
