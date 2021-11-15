@@ -27,13 +27,10 @@ var compWins = document.getElementById('compWin');
 // winner text
 var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
-var game;
+var game = new Game();
 
 // event listeners
-window.addEventListener('load', function() {
-    game = new Game();
-    showStats();
-});
+window.addEventListener('load', showStats);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-img')) {
         playRound(event.target.id);
@@ -67,6 +64,7 @@ function replayGame() {
     addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     decideReplay();
+    game.resetGame();
 };
 
 function decideReplay() {
