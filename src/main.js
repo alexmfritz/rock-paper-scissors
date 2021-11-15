@@ -56,9 +56,9 @@ function playRound(choice) {
 
 function clearGame() {
     game.choices = {
-        ironman: ['captain', 'hulk'],
-        captain: ['thor', 'widow'],
-        thor: ['ironman', 'widow'],
+        'ironman': ['captain', 'hulk'],
+        'captain': ['thor', 'widow'],
+        'thor': ['ironman', 'widow'],
     };
 };
 
@@ -72,9 +72,9 @@ function replayGame() {
 function decideReplay() {
     removeClass([gameChoiceImages], 'hidden');
     if (game.type === 'spicy') {
-        displayClassic();
+        displayChoices();
     }
-    displaySpicy();
+    displayChoices();
 };
 
 function takeBothTurns(choice) {
@@ -91,10 +91,10 @@ function startGameType(event) {
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     if (event.target.classList.contains('spicy')) {
         beginGame('spicy');
-        displaySpicy();
+        displayChoices();
     }
         beginGame('classic');
-        displayClassic();
+        displayChoices();
 };
 
 function enableGameChange() {
@@ -109,23 +109,8 @@ function disableButtons() {
     };
 };
 
-function displayClassic() {
+function displayChoices() {
     var choiceImages = Array.from(Object.keys(game.choices));
-    console.log(choiceImages);
-    gameChoiceImages.innerHTML = ``;
-    for(var i = 0; i < choiceImages.length; i++) {
-        gameChoiceImages.innerHTML += `
-            <section class="flex column">
-                <button class="${choiceImages[i]} med-img no-back all-btns" id="${choiceImages[i]}" alt="${choiceImages[i]} logo"></button>
-                <p class="emoji lrg-text" id="${choiceImages[i]}Emoji"></p>
-             </section>
-        `;
-    };
-};
-
-function displaySpicy() {
-    var choiceImages = Array.from(Object.keys(game.choices));
-    console.log(choiceImages);
     gameChoiceImages.innerHTML = ``;
     for(var i = 0; i < choiceImages.length; i++) {
         gameChoiceImages.innerHTML += `
