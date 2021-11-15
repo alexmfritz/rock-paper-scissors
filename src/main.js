@@ -44,12 +44,12 @@ spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
-        playGame(event.target.id);
+        playRound(event.target.id);
     };
 });
 
 // event handlers
-function playGame(choice) {
+function playRound(choice) {
     removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
     displayEmoji();
@@ -70,13 +70,11 @@ function replayGame() {
 };
 
 function decideReplay() {
+    removeClass([gameChoiceImages], 'hidden');
     if (game.type === 'spicy') {
-        removeClass([gameChoiceImages], 'hidden');
         displayClassic();
-    } else if (game.type === 'classic') {
-        removeClass([gameChoiceImages], 'hidden');
-        displaySpicy();
-    };
+    }
+    displaySpicy();
 };
 
 function takeBothTurns(choice) {
