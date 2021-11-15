@@ -12,8 +12,9 @@ var allButtons = document.getElementsByClassName('buttons');
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
 // buttons
-var classicButton = document.getElementById('classicButton');
-var spicyButton = document.getElementById('spicyButton');
+var buttonBox = document.getElementById('game-type-box');
+var classicButton = document.getElementById('classic');
+var spicyButton = document.getElementById('spicy');
 var changeGameButton = document.getElementById('changeGameButton');
 // player
 var playerEmoji = document.getElementById('playerEmoji');
@@ -39,13 +40,16 @@ window.addEventListener('load', function() {
     game = new Game();
     showStats();
 });
-classicButton.addEventListener('click', startClassic);
-spicyButton.addEventListener('click', startSpicy);
+// classicButton.addEventListener('click', startClassic);
+// spicyButton.addEventListener('click', startSpicy);
 changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playRound(event.target.id);
     };
+});
+buttonBox.addEventListener('click', function(event) {
+    startGameType(event);
 });
 
 // event handlers
@@ -86,18 +90,15 @@ function beginGame(type) {
     game.playGame(type);
 };
 
-function startClassic() {
+function startGameType(event) {
     hideButtons();
-    beginGame('classic');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
-    displayClassic();
-};
-
-function startSpicy() {
-    hideButtons();
-    beginGame('spicy');
-    updateInfo(winnerAnouncement, 'Choose your fighter!');
-    displaySpicy();
+    if (event.target.classList.contains('spicy')) {
+        beginGame('spicy');
+        displaySpicy();
+    }
+        beginGame('classic');
+        displayClassic();
 };
 
 function enableGameChange() {
