@@ -7,12 +7,12 @@ var ironManLogo = document.getElementById('ironMan');
 var capAmLogo = document.getElementById('capAm');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allButtons = document.getElementsByClassName('buttons');
+var allButtons = document.getElementsByClassName('all-btns');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
 // buttons
-var buttonBox = document.getElementById('game-type-box');
+var buttonBox = document.getElementById('gameTypeBox');
 var classicButton = document.getElementById('classic');
 var spicyButton = document.getElementById('spicy');
 var changeGameButton = document.getElementById('changeGameButton');
@@ -35,7 +35,7 @@ window.addEventListener('load', function() {
     showStats();
 });
 gameChoiceImages.addEventListener('click', function(event) {
-    if (event.target.classList.contains('med-image')) {
+    if (event.target.classList.contains('med-img')) {
         playRound(event.target.id);
     };
 });
@@ -110,8 +110,8 @@ function displayClassic() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
-                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
+                <button class="${game.choices[i]} med-img no-back all-btns" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji lrg-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
     };
@@ -122,8 +122,8 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
-                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
+                <button class="${game.choices[i]} med-img no-back all-btns" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji lrg-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
     };
