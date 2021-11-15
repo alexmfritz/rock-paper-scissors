@@ -28,7 +28,7 @@ class Game {
         if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return '😭 It\s a draw! 😭';
-        } else if (this.computer.choice === winsAgainst[0] || this.computer.choice === winsAgainst[1]) {
+        } else if (winsAgainst.includes(this.computer.choice)) {
             this.winner = this.updateWinner(this.player);
             return `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
         }
