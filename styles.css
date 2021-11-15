@@ -122,13 +122,13 @@ main {
     text-align: center;
 }
 
-.ironMan {
-    background: url("assets/ironMan.png");
+.ironman {
+    background: url("assets/ironman.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic3.cur"), auto;
 }
 
-.capAm {
-    background: url("assets/capAm.png");
+.captain {
+    background: url("assets/captain.png");
     cursor:  url("https://ani.cursors-4u.net/comics/mic-1/mic14.cur"), auto;
 }
 

@@ -3,8 +3,8 @@ var gameChoiceImages = document.getElementById('gameLogos');
 var resultsImages = document.getElementById('choiceDisplay');
 // choice images
 var hulkLogo = document.getElementById('hulk');
-var ironManLogo = document.getElementById('ironMan');
-var capAmLogo = document.getElementById('capAm');
+var ironManLogo = document.getElementById('ironman');
+var capAmLogo = document.getElementById('captain');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
 var allButtons = document.getElementsByClassName('all-btns');
@@ -55,7 +55,7 @@ function playRound(choice) {
 };
 
 function clearGame() {
-    game.choices = ['ironMan', 'capAm', 'thor'];
+    game.choices = ['ironman', 'captain', 'thor'];
 };
 
 function replayGame() {
