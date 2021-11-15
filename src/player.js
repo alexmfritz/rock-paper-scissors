@@ -8,7 +8,8 @@ class Player {
     }
     takeTurn(decision) {
         if (!decision) {
-            return this.choice = game.choices[getRandomIndex(game.choices)];
+            var computerChoices = Array.from(Object.keys(game.choices));
+            return this.choice = computerChoices[getRandomIndex(computerChoices)];
         }
         return this.choice = decision;
     }

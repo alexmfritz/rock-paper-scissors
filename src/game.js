@@ -4,48 +4,35 @@ class Game {
         this.player = new Player('Human', '👩🏻‍💻');
         this.computer = new Player('Computer', '💻');
         this.type = type || 'classic';
-        this.choices = ['ironman', 'captain', 'thor'];
+        this.choices = {
+            'ironman': ['captain', 'hulk'],
+            'captain': ['thor', 'widow'],
+            'thor': ['ironman', 'widow'],
+        };
         this.winner;
     }
     playGame(type) {
         this.type = type;
         if (this.type === 'spicy') {
-            this.choices.push('hulk', 'widow');
+            this.choices['hulk'] = ['thor', 'captain'];
+            this.choices['widow'] = ['hulk', 'ironman'];
         };
     }
+    updateWinner(winner) {
+        winner.wins++;
+        winner.saveWinsToStorage();
+        return winner.name;
+    }
     determineWinner() {
+        var winsAgainst = this.choices[this.player.choice];
         if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return '😭 It\s a draw! 😭';
-        } else if ((this.player.choice === 'ironman') && ((this.computer.choice === 'captain') || (this.computer.choice === 'hulk'))) {
-            this.player.wins++;
-            this.winner = this.player.name;
-            this.player.saveWinsToStorage();
-            return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'captain') && ((this.computer.choice === 'thor') || (this.computer.choice === 'widow'))) {
-            this.player.wins++;
-            this.winner = this.player.name;
-            this.player.saveWinsToStorage();
-            return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'thor') && ((this.computer.choice === 'ironman') || (this.computer.choice === 'widow'))) {
-            this.player.wins++;
-            this.winner = this.player.name;
-            this.player.saveWinsToStorage();
-            return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'hulk') && ((this.computer.choice === 'thor') || (this.computer.choice === 'captain'))) {
-            this.player.wins++;
-            this.winner = this.player.name;
-            this.player.saveWinsToStorage();
-            return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } else if ((this.player.choice === 'widow') && ((this.computer.choice === 'ironman') || (this.computer.choice === 'hulk'))) {
-            this.player.wins++;
-            this.winner = this.player.name;
-            this.player.saveWinsToStorage();
-            return  `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
-        } 
-        this.computer.wins++;
-        this.winner = this.computer.name;
-        this.computer.saveWinsToStorage();
-        return  `💻 ${game.computer.name} wins! 💻`;
+        } else if (winsAgainst.includes(this.computer.choice)) {
+            this.winner = this.updateWinner(this.player);
+            return `👩🏻‍💻 ${game.player.name} wins! 👩🏻‍💻`;
+        }
+        this.winner = this.updateWinner(this.computer);
+        return `💻 ${game.computer.name} wins! 💻`;
     }
 }
