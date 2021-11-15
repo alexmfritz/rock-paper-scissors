@@ -7,7 +7,7 @@ var ironManLogo = document.getElementById('ironMan');
 var capAmLogo = document.getElementById('capAm');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allButtons = document.getElementsByClassName('med-image');
+var allButtons = document.getElementsByClassName('buttons');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
@@ -54,8 +54,8 @@ function playGame(choice) {
     takeBothTurns(choice);
     displayEmoji();
     disableButtons();
-    setTimeout(displayBothFighters, 1500);
-    setTimeout(replayGame, 3000);
+    setTimeout(displayBothFighters, 1000);
+    setTimeout(replayGame, 2000);
 };
 
 function clearGame() {
@@ -63,6 +63,7 @@ function clearGame() {
 };
 
 function replayGame() {
+    enableGameChange()
     addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     decideReplay();
@@ -101,6 +102,11 @@ function startSpicy() {
     displaySpicy();
 };
 
+function enableGameChange() {
+    changeGameButton.disabled = false;
+    removeClass([changeGameButton], 'opacity');
+};
+
 function disableButtons() {
     for(var i = 0; i < allButtons.length; i++) {
         allButtons[i].disabled = true;
@@ -113,7 +119,7 @@ function displayClassic() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
                 <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
@@ -125,7 +131,7 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
                 <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
@@ -147,7 +153,7 @@ function displayFighters(element, opponent) {
 };
 
 function displayEmoji() {
-    var logoEmoji = document.querySelector(`#${game.player.choice}Emoji`)
+    var logoEmoji = document.querySelector(`#${game.player.choice}Emoji`);
     logoEmoji.innerText = '👩🏻‍💻';
 };
 
