@@ -7,7 +7,7 @@ var ironManLogo = document.getElementById('ironMan');
 var capAmLogo = document.getElementById('capAm');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allLogos = document.querySelectorAll('.med-image');
+var allButtons = document.getElementsByClassName('buttons');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
@@ -45,15 +45,15 @@ changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playGame(event.target.id);
-        displayEmoji(event);
     };
 });
-
 
 // event handlers
 function playGame(choice) {
     removeClass([changeGameButton], 'hidden');
     takeBothTurns(choice);
+    displayEmoji();
+    disableButtons();
     setTimeout(displayBothFighters, 1000);
     setTimeout(replayGame, 2000);
 };
@@ -63,6 +63,7 @@ function clearGame() {
 };
 
 function replayGame() {
+    enableGameChange()
     addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
     decideReplay();
@@ -101,15 +102,26 @@ function startSpicy() {
     displaySpicy();
 };
 
+function enableGameChange() {
+    changeGameButton.disabled = false;
+    removeClass([changeGameButton], 'opacity');
+};
+
+function disableButtons() {
+    for(var i = 0; i < allButtons.length; i++) {
+        allButtons[i].disabled = true;
+        addClass([allButtons[i]], 'opacity');
+    };
+};
+
 function displayClassic() {
     gameChoiceImages.innerHTML = ``;
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
-                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
-        
         `;
     };
 };
@@ -119,10 +131,9 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <image class="${game.choices[i]} med-image ${game.choices[i]}-cursor" id="${game.choices[i]}" src="assets/${game.choices[i]}.png" alt="${game.choices[i]} logo" />
-                <p class="emoji large-text visible" id="${game.choices[i]}Emoji">👩🏻‍💻</p>
+                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
-        
         `;
     };
 };
@@ -141,8 +152,9 @@ function displayFighters(element, opponent) {
     element.alt = `${opponent} logo`;
 };
 
-function displayEmoji(event) {
-    removeClass([event.target.nextElementSibling], 'visible');
+function displayEmoji() {
+    var logoEmoji = document.querySelector(`#${game.player.choice}Emoji`);
+    logoEmoji.innerText = '👩🏻‍💻';
 };
 
 function pickNewGame() {
