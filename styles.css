@@ -122,27 +122,27 @@ main {
     text-align: center;
 }
 
-.ironMan-cursor {
+.ironMan {
     background: url("assets/ironMan.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic3.cur"), auto;
 }
 
-.capAm-cursor {
+.capAm {
     background: url("assets/capAm.png");
     cursor:  url("https://ani.cursors-4u.net/comics/mic-1/mic14.cur"), auto;
 }
 
-.thor-cursor {
+.thor {
     background: url("assets/thor.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic12.cur"), auto;
 }
 
-.hulk-cursor {
+.hulk {
     background: url("assets/hulk.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic17.cur"), auto;
 }
 
-.widow-cursor {
+.widow {
     background: url("assets/widow.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic13.cur"), auto;
 }
