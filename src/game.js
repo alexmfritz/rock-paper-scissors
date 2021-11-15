@@ -25,7 +25,6 @@ class Game {
     }
     determineWinner() {
         var winsAgainst = this.choices[this.player.choice];
-
         if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return '😭 It\s a draw! 😭';
