@@ -35,4 +35,8 @@ class Game {
         this.winner = this.updateWinner(this.computer);
         return `💻 ${game.computer.name} wins! 💻`;
     }
+    resetGame() {
+        this.player.choice = null;
+        this.computer.choice = null;
+    }
 }
