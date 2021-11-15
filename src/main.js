@@ -110,7 +110,7 @@ function displayClassic() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <button class="${game.choices[i]} med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
                 <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
@@ -122,7 +122,7 @@ function displaySpicy() {
     for(var i = 0; i < game.choices.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${game.choices[i]} ${game.choices[i]}-cursor med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
+                <button class="${game.choices[i]} med-image no-back buttons" id="${game.choices[i]}" alt="${game.choices[i]} logo"></button>
                 <p class="emoji large-text" id="${game.choices[i]}Emoji"></p>
              </section>
         `;
