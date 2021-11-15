@@ -24,12 +24,6 @@ var playerWins = document.getElementById('playerWin');
 var compEmoji = document.getElementById('compEmoji');
 var compName = document.getElementById('compName');
 var compWins = document.getElementById('compWin');
-// display emojis
-var hulkEmoji = document.getElementById('hulkEmoji');
-var ironManEmoji = document.getElementById('ironManEmoji');
-var capAmEmoji = document.getElementById('capAmEmoji');
-var thorEmoji = document.getElementById('thorEmoji');
-var widowEmoji = document.getElementById('widowEmoji');
 // winner text
 var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
@@ -40,9 +34,6 @@ window.addEventListener('load', function() {
     game = new Game();
     showStats();
 });
-// classicButton.addEventListener('click', startClassic);
-// spicyButton.addEventListener('click', startSpicy);
-changeGameButton.addEventListener('click', pickNewGame);
 gameChoiceImages.addEventListener('click', function(event) {
     if (event.target.classList.contains('med-image')) {
         playRound(event.target.id);
@@ -51,6 +42,7 @@ gameChoiceImages.addEventListener('click', function(event) {
 buttonBox.addEventListener('click', function(event) {
     startGameType(event);
 });
+changeGameButton.addEventListener('click', pickNewGame);
 
 // event handlers
 function playRound(choice) {
