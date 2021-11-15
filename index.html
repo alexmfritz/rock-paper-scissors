@@ -9,36 +9,36 @@
     </head>
     <body>
         <main class="flex row">
-            <aside class="user side-panel flex column">
+            <aside class="flex column side-panel">
                 <h2 class="player-icons" id="playerEmoji"></h2>
                 <h3 class="player-titles" id="playerName"></h3>
-                <p class="player-scores small-top-marg" id="playerWin"></p>
-                <button class="change game-button choice-card radius shadow large-text big-top-marg buttons hidden" id="changeGameButton">CHANGE GAME?</button>
+                <p class="player-scores sml-top-marg" id="playerWin"></p>
+                <button class="new-btn choice-card radius shadow lrg-text lrg-top-marg all-btns hidden" id="changeGameButton">CHANGE GAME?</button>
             </aside>
-            <section class="game center-panel flex column">
-                <section class="split-height small-top-marg text-center">
+            <section class="flex column center-panel">
+                <section class="split-height sml-top-marg text-center">
                     <h1 class="title">Rock, Paper, Scissors</h1>
-                    <h3 class="player-titles small-top-marg" id="winnerAnnounce">Choose your game!</h3>
+                    <h3 class="player-titles sml-top-marg" id="winnerAnnounce">Choose your game!</h3>
                 </section>
                 <section class="flex row split-height">
-                    <section class="choice hidden" id="choiceDisplay">
-                        <image class="player-choice big-image" id="playerChoiceDisplay"/>
-                        <image class="computer-choice big-image" id="computerChoiceDisplay"/>
+                    <section class="hidden" id="choiceDisplay">
+                        <image class="player-choice big-img" id="playerChoiceDisplay"/>
+                        <image class="computer-choice big-img" id="computerChoiceDisplay"/>
                     </section>
-                    <section class="game-logos flex images hidden" id="gameLogos">
+                    <section class="flex images hidden" id="gameLogos">
                     </section>
                 </section>
-                <section class="flex column split-height med-bottom-marg" id="game-type-box">
-                    <button class="choice-button classic-button choice-card flex column shadow radius big-bottom-marg classic" id="classic">
-                        <h4 class="small-bottom-marg classic">⚡️ CLASSIC ⚡️</h4>
+                <section class="flex column split-height med-btm-marg" id="gameTypeBox">
+                    <button class="flex column choice-btn choice-card shadow radius lrg-btm-marg classic" id="classic">
+                        <h4 class="sml-btm-marg classic">⚡️ CLASSIC ⚡️</h4>
                         <ul class="list-margin classic">
                             <p class="classic">THOR > IRON MAN</p>
                             <p class="classic">CAPTAIN AMERICA > THOR</p>
                             <p class="classic">IRON MAN > CAPTAIN AMERICA</p>
                         </ul>
                     </button>
-                    <button class="choice-button spicy-button choice-card flex column shadow radius spicy" id="spicy">
-                        <h4 class="small-bottom-marg spicy">🔥 SPICY 🔥</h4>
+                    <button class="flex column choice-btn choice-card shadow radius spicy" id="spicy">
+                        <h4 class="sml-btm-marg spicy">🔥 SPICY 🔥</h4>
                         <ul class="list-margin spicy">
                             <p class="spicy">THOR > IRON MAN & BLACK WIDOW</p>
                             <p class="spicy">CAPTAIN AMERICA > THOR & BLACK WIDOW</p>
@@ -49,10 +49,10 @@
                     </button>
                 </section>
             </section>
-            <aside class="computer side-panel flex column">
+            <aside class="flex column side-panel">
                 <h2 class="player-icons" id="compEmoji"></h2>
                 <h3 class="player-titles" id="compName"></h3>
-                <p class="player-scores small-top-marg" id="compWin"></p>
+                <p class="player-scores sml-top-marg" id="compWin"></p>
             </aside>
         </main>
     </body>

@@ -55,7 +55,7 @@ main {
     border: 0;
 }
 
-.choice-button {
+.choice-btn {
     height: 150px;
     width: 300px;
     padding: 4%;
@@ -67,13 +67,13 @@ main {
     box-shadow: 20px 20px 20px black;
 }
 
-.big-image {
+.big-img {
     height: 400px;
     width: 400px;
 }
 
-.game-button {
-    height: 8%;
+.new-btn {
+    height: 10%;
     width: 75%;
 }
 
@@ -90,23 +90,23 @@ main {
     margin-left: -10%;
 }
 
-.small-top-marg {
+.sml-top-marg {
     margin-top: 3%;
 }
 
-.big-top-marg {
+.lrg-top-marg {
     margin-top: 30%;
 }
 
-.small-bottom-marg {
+.sml-btm-marg {
     margin-bottom: 1%;
 }
 
-.med-bottom-marg {
+.med-btm-marg {
     margin-bottom: 5%;
 }
 
-.big-bottom-marg {
+.lrg-btm-marg {
     margin-bottom: 10%;
 }
 
@@ -114,7 +114,7 @@ main {
     font-size: 450%;
 }
 
-.large-text {
+.lrg-text {
     font-size: 200%;
 }
 
@@ -122,32 +122,32 @@ main {
     text-align: center;
 }
 
-.ironMan-cursor {
-    background: url("assets/ironMan.png");
+.ironman {
+    background: url("assets/ironman.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic3.cur"), auto;
 }
 
-.capAm-cursor {
-    background: url("assets/capAm.png");
+.captain {
+    background: url("assets/captain.png");
     cursor:  url("https://ani.cursors-4u.net/comics/mic-1/mic14.cur"), auto;
 }
 
-.thor-cursor {
+.thor {
     background: url("assets/thor.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic12.cur"), auto;
 }
 
-.hulk-cursor {
+.hulk {
     background: url("assets/hulk.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic17.cur"), auto;
 }
 
-.widow-cursor {
+.widow {
     background: url("assets/widow.png");
     cursor: url("https://ani.cursors-4u.net/comics/mic-1/mic13.cur"), auto;
 }
 
-.med-image {
+.med-img {
     align-items: center;
     background-size: 150px;
     background-repeat: no-repeat;
