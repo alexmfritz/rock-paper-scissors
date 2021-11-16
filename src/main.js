@@ -61,18 +61,11 @@ function clearGame() {
 
 function replayGame() {
     enableGameChange()
+    removeClass([gameChoiceImages], 'hidden');
     addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
-    decideReplay();
-    game.resetGame();
-};
-
-function decideReplay() {
-    removeClass([gameChoiceImages], 'hidden');
-    if (game.type === 'spicy') {
-        displayChoices();
-    }
     displayChoices();
+    game.resetGame();
 };
 
 function takeBothTurns(choice) {
