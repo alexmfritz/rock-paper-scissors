@@ -4,7 +4,7 @@ class Player {
         this.name = name;
         this.emoji = emoji;
         this.wins = 0;
-        this.choice;
+        this.choice = null;
     }
     takeTurn(decision) {
         if (!decision) {
