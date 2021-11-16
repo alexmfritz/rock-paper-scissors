@@ -31,3 +31,11 @@ Since the composition only required a loose match, we were given the freedom of 
 
 ## Basic Game Play
 
+Upon page load, the user will see the game board in the center of the page with a fancy title (mouse over effect!) and a message asking them to choose their game type. Their game type will be decided by the action of clicking on either the classic or spicy buttons found at the bottom of the game board. On either side of the game board, the user will see the two players (human user: left, computer: right) with an emoji that represents them and a score of 0. The user will also be pleasantly surprised to see their cursor is represented by the iconic Vibranium shield wielded by Captain America.
+
+After selecting their game type, the game board will populate with the super hero logos that represents their decision and the text will ask them to pick their "fighter". Classic game type displays three logos, meanwhile the spicy game type displays five logos. As the cursor hovers over the different options in both versions, the icon will change to be a cute 8-bit version of whatever the larger icon will be. Additionally, a *slight* opacity will be added, just to notify the user that those logos are clickable. Once the decision is made, an emoji appears underneath the user's pick and the computer will randomly select one of the options that are available to them within that specific game type. 
+
+A "New Game" button will also appear, but all currently in-view buttons will gain a *heavy* opacity to display that they are disabled until the game board has completed the round. The two characters chosen (both user and computer) will display larger on the screen, the text will announce the winner, scores are logged within the side panels, and finally the previous game type is redisplayed while all buttons become enabled again. If the user would like to continue playing that specific game type, they may keep clicking on the current logos or direct themselves to the home screen via the New Game button and pick a different version.
+
+##
+
