@@ -31,15 +31,24 @@ var game = new Game();
 
 // event listeners
 window.addEventListener('load', showStats);
-gameChoiceImages.addEventListener('click', function(event) {
-    playRound(event);
-});
 buttonBox.addEventListener('click', function(event) {
     startGameType(event);
+});
+gameChoiceImages.addEventListener('click', function(event) {
+    playRound(event);
 });
 changeGameButton.addEventListener('click', pickNewGame);
 
 // event handlers
+function startGameType(event) {
+    hideButtons();
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
+    if (event.target.classList.contains('spicy')) {
+        beginGame('spicy');
+    };
+    displayChoices();
+};
+
 function playRound(event) {
     if (event.target.classList.contains('med-img')) {
         removeClass([changeGameButton], 'hidden');
@@ -51,23 +60,6 @@ function playRound(event) {
     };
 };
 
-function clearGame() {
-    game.choices = {
-        'ironman': ['captain', 'hulk'],
-        'captain': ['thor', 'widow'],
-        'thor': ['ironman', 'widow'],
-    };
-};
-
-function replayGame() {
-    enableGameChange()
-    removeClass([gameChoiceImages], 'hidden');
-    addClass([resultsImages], 'hidden');
-    updateInfo(winnerAnouncement, 'Choose your fighter!');
-    displayChoices();
-    game.resetGame();
-};
-
 function takeBothTurns(choice) {
     game.player.takeTurn(choice);
     game.computer.takeTurn();
@@ -75,28 +67,6 @@ function takeBothTurns(choice) {
 
 function beginGame(type) {
     game.playGame(type);
-};
-
-function startGameType(event) {
-    hideButtons();
-    updateInfo(winnerAnouncement, 'Choose your fighter!');
-    if (event.target.classList.contains('spicy')) {
-        beginGame('spicy');
-    };
-    beginGame('classic');
-    displayChoices();
-};
-
-function enableGameChange() {
-    changeGameButton.disabled = false;
-    removeClass([changeGameButton], 'opacity');
-};
-
-function disableButtons() {
-    for(var i = 0; i < allButtons.length; i++) {
-        allButtons[i].disabled = true;
-        addClass([allButtons[i]], 'opacity');
-    };
 };
 
 function displayChoices() {
@@ -131,6 +101,35 @@ function displayEmoji() {
     logoEmoji.innerText = '👩🏻‍💻';
 };
 
+function clearGame() {
+    game.choices = {
+        'ironman': ['captain', 'hulk'],
+        'captain': ['thor', 'widow'],
+        'thor': ['ironman', 'widow'],
+    };
+};
+
+function replayGame() {
+    enableGameChange()
+    removeClass([gameChoiceImages], 'hidden');
+    addClass([resultsImages], 'hidden');
+    updateInfo(winnerAnouncement, 'Choose your fighter!');
+    displayChoices();
+    game.resetGame();
+};
+
+function enableGameChange() {
+    changeGameButton.disabled = false;
+    removeClass([changeGameButton], 'opacity');
+};
+
+function disableButtons() {
+    for(var i = 0; i < allButtons.length; i++) {
+        allButtons[i].disabled = true;
+        addClass([allButtons[i]], 'opacity');
+    };
+};
+
 function pickNewGame() {
     addClass([gameChoiceImages, resultsImages, changeGameButton], 'hidden');
     removeClass([classicButton, spicyButton], 'hidden');
@@ -163,7 +162,6 @@ function hideButtons() {
 };
 
 // helper functions
-
 function updateInfo(element, update) {
     element.innerText = update;
 };
