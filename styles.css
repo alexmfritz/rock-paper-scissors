@@ -86,7 +86,7 @@ main {
     height: 33%;
 }
 
-.list-margin {
+.list-marg {
     margin-left: -10%;
 }
 
@@ -111,7 +111,13 @@ main {
 }
 
 .title {
-    font-size: 450%;
+    font-size: 500%;
+}
+
+.title:hover {
+    font-style: oblique;
+    color:rgba(68, 123, 190, .9);
+    text-shadow: -20px -20px 10px #000000;
 }
 
 .lrg-text {
@@ -152,7 +158,8 @@ main {
     background-size: 150px;
     background-repeat: no-repeat;
     height: 180px;
-    width: 180px;
+    width: 150px;
+    margin-bottom: -30px;
 }
 
 .choice-card:hover {
