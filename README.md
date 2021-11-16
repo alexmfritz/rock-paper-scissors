@@ -37,5 +37,32 @@ After selecting their game type, the game board will populate with the super her
 
 A "New Game" button will also appear, but all currently in-view buttons will gain a *heavy* opacity to display that they are disabled until the game board has completed the round. The two characters chosen (both user and computer) will display larger on the screen, the text will announce the winner, scores are logged within the side panels, and finally the previous game type is redisplayed while all buttons become enabled again. If the user would like to continue playing that specific game type, they may keep clicking on the current logos or direct themselves to the home screen via the New Game button and pick a different version.
 
-##
+Once the user has completed their game, they may exit the application and sleep easy knowing their game scores will remain the same until the next time that they return to play again.
 
+## Challenges
+
+The biggest challenge of the project for me was breaking down the game logic inside the Game class ```determineWinner``` function. The initial logic was pretty easy to create, but it was extremely wordy and I knew there was a better option to display my ability to follow DRY JavaScript functions and SRP. My solution was to assign the Player.choice to be an Object with key-value pairs. Each key represented the user choice, while the value of each key would be represented as an Array that contains the choices that user selection will beat in the game. In the end, I found how to turn the keys of an Object into an JavaScript Array to allow the user/computer to filter through them when making their decision. This solution allowed roughly 30 lines of code to turn into 10, which I am really proud of. 
+
+## Successes 
+
+The biggest success of the project was the creation of composition within HTML and CSS. As mentioned above, Hannah's AMA gave me a lightbulb moment in how to quickly and efficiently apply CSS while maintaining naming accurate convention and DRY-ness standards.
+
+## Future Features
+
+- The option for two player mode
+- A login screen that allows users to dynamically choose their name and emoji
+- The option for users to choose between WHICH three/five options they play with out of a selection of many more Avengers/Marvel Comic's superheroes 
+- Upon winning (no matter who wins), a selection of quotes from the winning character displays on the screen
+- After **5** consistent losses in a row, a reset score button appears for the user because they will be mad that the computer or their friend keeps winning
+
+## Technologies
+
+The project uses JavaScript, HTML, and CSS.
+
+## Author/Links
+
+Alex Fritz
+[LinkedIn](https://www.linkedin.com/in/alexmfritz/)
+[GitHub](https://github.com/alexmfritz)
+[Rock, Paper, Scissors Repo](https://github.com/alexmfritz/rock-paper-scissors)
+[Deployable Link]()
