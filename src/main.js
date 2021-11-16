@@ -83,10 +83,10 @@ function displayChoices() {
 };
 
 function displayBothFighters() {
-    showStats();
+    winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
-    winnerAnouncement.innerText = game.determineWinner();
+    showStats();
 };
 
 function displayFighters(element, opponent) {
