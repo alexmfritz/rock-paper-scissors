@@ -75,8 +75,8 @@ function displayChoices() {
     for(var i = 0; i < choiceImages.length; i++) {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${choiceImages[i]} med-img no-back all-btns" id="${choiceImages[i]}" alt="${choiceImages[i]} logo"></button>
-                <p class="emoji lrg-text" id="${choiceImages[i]}Emoji"></p>
+                <button class="${choiceImages[i]} med-img no-back all-btns" id="${choiceImages[i]}" alt="${choiceImages[i]} image logo"></button>
+                <h2 class="emoji lrg-text" id="${choiceImages[i]}Emoji"></h2>
              </section>
         `;
     };
