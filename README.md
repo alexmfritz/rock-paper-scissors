@@ -15,12 +15,18 @@ With the Mod 1 Final Solo project, I was nervously excited to put all the skills
 
 ## Composition
 
+![](https://media.giphy.com/media/FWWEFyQzsacic60XhD/giphy.gif)
+
 Since the composition only required a loose match, we were given the freedom of designing our own theme. I chose to incorporate the **The Avengers** characters from *Marvel Comics*. The classic version of the game allows the user to pick from the beloved "Big 3": Iron Man, Captain America, and Thor Odison. If the user chooses to play the spicy version of the game, they will then have the choice to select between The Incredible Hulk and Black Widow, too.
+
+![](https://media.giphy.com/media/AdGjNWM0nkmS0q1cSs/giphy.gif)
 
 **Classic Rules**
 - Iron Man **>** Captain America
 - Captain America **>** Thor Odison
 - Thor Odison **>** Iron Man
+
+![](https://media.giphy.com/media/WZVFymQ1246VADrQCO/giphy.gif)
 
 **Spicy Rules**
 - Iron Man **>** Captain American **&&** The Incredible Hulk
@@ -33,19 +39,33 @@ Since the composition only required a loose match, we were given the freedom of 
 
 Upon page load, the user will see the game board in the center of the page with a fancy title (mouse over effect!) and a message asking them to choose their game type. Their game type will be decided by the action of clicking on either the classic or spicy buttons found at the bottom of the game board. On either side of the game board, the user will see the two players (human user: left, computer: right) with an emoji that represents them and a score of 0. The user will also be pleasantly surprised to see their cursor is represented by the iconic Vibranium shield wielded by Captain America.
 
+![](https://media.giphy.com/media/t93hAsL1SWtArHfLSp/giphy.gif)
+
 After selecting their game type, the game board will populate with the super hero logos that represents their decision and the text will ask them to pick their "fighter". Classic game type displays three logos, meanwhile the spicy game type displays five logos. As the cursor hovers over the different options in both versions, the icon will change to be a cute 8-bit version of whatever the larger icon will be. Additionally, a *slight* opacity will be added, just to notify the user that those logos are clickable. Once the decision is made, an emoji appears underneath the user's pick and the computer will randomly select one of the options that are available to them within that specific game type. 
+
+![](https://media.giphy.com/media/Hagnt97EcSQIsBSeXf/giphy.gif)
 
 A "New Game" button will also appear, but all currently in-view buttons will gain a *heavy* opacity to display that they are disabled until the game board has completed the round. The two characters chosen (both user and computer) will display larger on the screen, the text will announce the winner, scores are logged within the side panels, and finally the previous game type is redisplayed while all buttons become enabled again. If the user would like to continue playing that specific game type, they may keep clicking on the current logos or direct themselves to the home screen via the New Game button and pick a different version.
 
+![](https://media.giphy.com/media/WD0MqRqcXlS0iuIe74/giphy.gif)
+
 Once the user has completed their game, they may exit the application and sleep easy knowing their game scores will remain the same until the next time that they return to play again.
+
+![](https://media.giphy.com/media/TQ5xvCL6fxV84LbYIL/giphy.gif)
 
 ## Challenges
 
 The biggest challenge of the project for me was breaking down the game logic inside the Game class ```determineWinner``` function. The initial logic was pretty easy to create, but it was extremely wordy and I knew there was a better option to display my ability to follow DRY JavaScript functions and SRP. My solution was to assign the Player.choice to be an Object with key-value pairs. Each key represented the user choice, while the value of each key would be represented as an Array that contains the choices that user selection will beat in the game. In the end, I found how to turn the keys of an Object into an JavaScript Array to allow the user/computer to filter through them when making their decision. This solution allowed roughly 30 lines of code to turn into 10, which I am really proud of. 
 
+![Screen Shot 2021-11-16 at 4 12 53 PM](https://user-images.githubusercontent.com/89096040/142088297-c6ee1c00-2f01-4124-8164-421e791a08d7.png)
+
 ## Successes 
 
 The biggest success of the project was the creation of composition within HTML and CSS. As mentioned above, Hannah's AMA gave me a lightbulb moment in how to quickly and efficiently apply CSS while maintaining naming accurate convention and DRY-ness standards.
+
+![Screen Shot 2021-11-16 at 4 40 00 PM](https://user-images.githubusercontent.com/89096040/142088509-18f4852f-30ce-4c9c-b0d5-6606d0526fb5.png)
+
+![Screen Shot 2021-11-16 at 4 39 07 PM](https://user-images.githubusercontent.com/89096040/142088443-69262852-48db-4361-8510-1accde487d91.png)
 
 ## Future Features
 
@@ -57,12 +77,21 @@ The biggest success of the project was the creation of composition within HTML a
 
 ## Technologies
 
-The project uses JavaScript, HTML, and CSS.
+- JavaScript, HTML, CSS
+- VS Code
+- GitHub
+- Terminal
+- Giphy
 
 ## Author/Links
 
 Alex Fritz
-[LinkedIn](https://www.linkedin.com/in/alexmfritz/)
-[GitHub](https://github.com/alexmfritz)
-[Rock, Paper, Scissors Repo](https://github.com/alexmfritz/rock-paper-scissors)
-[Deployable Link]()
+- [LinkedIn](https://www.linkedin.com/in/alexmfritz/)
+- [GitHub](https://github.com/alexmfritz)
+- [Rock, Paper, Scissors Repo](https://github.com/alexmfritz/rock-paper-scissors)
+- [Rock, Paper, Scissors Journal](https://gist.github.com/alexmfritz/87814a959c96614fa99c045dd5754466)
+- [Deployable Link]() - TBD after project review
+
+## Project Manager
+
+Hannah Hudson
