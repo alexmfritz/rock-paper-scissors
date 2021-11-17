@@ -95,7 +95,7 @@ Alex Fritz
 - [GitHub](https://github.com/alexmfritz)
 - [Rock, Paper, Scissors Repo](https://github.com/alexmfritz/rock-paper-scissors)
 - [Rock, Paper, Scissors Journal](https://gist.github.com/alexmfritz/87814a959c96614fa99c045dd5754466)
-- [Deployable Link]() - TBD after project review
+- [Deployable Link](https://alexmfritz.github.io/rock-paper-scissors/) - TBD after project review
 
 ## Project Manager
 
