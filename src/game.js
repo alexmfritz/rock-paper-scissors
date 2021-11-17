@@ -11,6 +11,7 @@ class Game {
         };
         this.winner;
     }
+
     playGame(type) {
         this.type = type;
         if (this.type === 'spicy') {
@@ -18,11 +19,13 @@ class Game {
             this.choices['widow'] = ['hulk', 'ironman'];
         };
     }
+
     updateWinner(winner) {
         winner.wins++;
         winner.saveWinsToStorage();
         return winner.name;
     }
+
     determineWinner() {
         var winsAgainst = this.choices[this.player.choice];
         if (this.player.choice === this.computer.choice) {
@@ -35,6 +38,7 @@ class Game {
         this.winner = this.updateWinner(this.computer);
         return `💻 ${game.computer.name} wins! 💻`;
     }
+    
     resetGame() {
         this.player.choice = null;
         this.computer.choice = null;
