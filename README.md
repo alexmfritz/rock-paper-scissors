@@ -51,8 +51,6 @@ A "New Game" button will also appear, but all currently in-view buttons will gai
 
 Once the user has completed their game, they may exit the application and sleep easy knowing their game scores will remain the same until the next time that they return to play again.
 
-![](https://media.giphy.com/media/TQ5xvCL6fxV84LbYIL/giphy.gif)
-
 ## Challenges
 
 The biggest challenge of the project for me was breaking down the game logic inside the Game class ```determineWinner``` function. The initial logic was pretty easy to create, but it was extremely wordy and I knew there was a better option to display my ability to follow DRY JavaScript functions and SRP. My solution was to assign the Player.choice to be an Object with key-value pairs. Each key represented the user choice, while the value of each key would be represented as an Array that contains the choices that user selection will beat in the game. In the end, I found how to turn the keys of an Object into an JavaScript Array to allow the user/computer to filter through them when making their decision. This solution allowed roughly 30 lines of code to turn into 10, which I am really proud of. 
@@ -63,9 +61,9 @@ The biggest challenge of the project for me was breaking down the game logic ins
 
 The biggest success of the project was the creation of composition within HTML and CSS. As mentioned above, Hannah's AMA gave me a lightbulb moment in how to quickly and efficiently apply CSS while maintaining naming accurate convention and DRY-ness standards.
 
-![Screen Shot 2021-11-16 at 4 40 00 PM](https://user-images.githubusercontent.com/89096040/142088509-18f4852f-30ce-4c9c-b0d5-6606d0526fb5.png)
-
 ![Screen Shot 2021-11-16 at 4 39 07 PM](https://user-images.githubusercontent.com/89096040/142088443-69262852-48db-4361-8510-1accde487d91.png)
+
+![Screen Shot 2021-11-16 at 4 40 00 PM](https://user-images.githubusercontent.com/89096040/142088509-18f4852f-30ce-4c9c-b0d5-6606d0526fb5.png)
 
 ## Future Features
 
