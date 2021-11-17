@@ -81,6 +81,13 @@ The biggest success of the project was the creation of composition within HTML a
 - Terminal
 - Giphy
 
+## Install 
+
+- Fork this project to your own Github account
+- Clone the repository to your local machine
+- cd into the project
+- Read this README thoroughly, then begin editting however you'd like to!
+
 ## Author/Links
 
 Alex Fritz
