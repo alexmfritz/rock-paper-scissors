@@ -7,7 +7,8 @@ var ironManLogo = document.getElementById('ironman');
 var capAmLogo = document.getElementById('captain');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allButtons = document.getElementsByClassName('all-btns');
+var allButtons = document.getElementsByClassName('med-img');
+// var allButtons = document.querySelectorAll('all-btns');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
@@ -29,27 +30,17 @@ var winnerAnouncement = document.getElementById('winnerAnnounce');
 // data model
 var game = new Game();
 
-// event listeners
-window.addEventListener('load', showStats);
-buttonBox.addEventListener('click', function(event) {
-    startGameType(event);
-});
-gameChoiceImages.addEventListener('click', function(event) {
-    playRound(event);
-});
-changeGameButton.addEventListener('click', pickNewGame);
-
 // event handlers
-function startGameType(event) {
+const startGameType = (event) => {
     if (event.target.classList.contains('spicy')) {
         beginGame('spicy');
-    };
+    }
     displayChoices();
     hideButtons();
     updateInfo(winnerAnouncement, 'Choose your fighter!');
-};
+}
 
-function playRound(event) {
+const playRound = (event) => {
     if (event.target.classList.contains('med-img')) {
         takeBothTurns(event.target.id);
         displayEmoji();
@@ -57,127 +48,136 @@ function playRound(event) {
         removeClass([changeGameButton], 'hidden');
         setTimeout(displayBothFighters, 1000);
         setTimeout(replayGame, 2000);
-    };
-};
+    }
+}
 
-function takeBothTurns(choice) {
+const takeBothTurns = (choice) => {
     game.player.takeTurn(choice);
     game.computer.takeTurn();
-};
+}
 
-function beginGame(type) {
+const beginGame = (type) => {
     game.playGame(type);
-};
+}
 
-function displayChoices() {
-    var choiceImages = Array.from(Object.keys(game.choices));
+const displayChoices = () => {
+    let choiceImages = Array.from(Object.keys(game.choices));
     gameChoiceImages.innerHTML = ``;
-    for(var i = 0; i < choiceImages.length; i++) {
+    choiceImages.forEach(item => {
         gameChoiceImages.innerHTML += `
             <section class="flex column">
-                <button class="${choiceImages[i]} med-img no-back all-btns" id="${choiceImages[i]}" alt="${choiceImages[i]} image logo"></button>
-                <h2 class="emoji lrg-text" id="${choiceImages[i]}Emoji"></h2>
-             </section>
-        `;
-    };
-};
+                <button class="${item} med-img no-back all-btns" id="${item}" alt="${item} image logo"></button>
+                <h2 class="emoji lrg-text" id="${item}Emoji"></h2>
+            </section>`
+    })
+}
 
-function displayBothFighters() {
+const displayBothFighters = () => {
     winnerAnouncement.innerText = game.determineWinner();
     displayFighters(playerChoice, `${game.player.choice}`);
     displayFighters(computerChoice, `${game.computer.choice}`);
     showStats();
-};
+}
 
-function displayFighters(element, opponent) {
+const displayFighters = (element, opponent) => {
     element.src = `assets/${opponent}.png`;
     element.alt = `${opponent} logo`;
     removeClass([resultsImages], 'hidden');
     addClass([gameChoiceImages], 'hidden');
-};
+}
 
-function displayEmoji() {
-    var logoEmoji = document.querySelector(`#${game.player.choice}Emoji`);
+const displayEmoji = () => {
+    let logoEmoji = document.querySelector(`#${game.player.choice}Emoji`);
     logoEmoji.innerText = '👩🏻‍💻';
-};
+}
 
-function clearGame() {
+const clearGame = () => {
     game.choices = {
         'ironman': ['captain', 'hulk'],
         'captain': ['thor', 'widow'],
         'thor': ['ironman', 'widow'],
-    };
-};
+    }
+}
 
-function replayGame() {
+const replayGame = () => {
     game.resetGame();
     enableGameChange();
     displayChoices();
     removeClass([gameChoiceImages], 'hidden');
     addClass([resultsImages], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your fighter!');
-};
+}
 
-function enableGameChange() {
+const enableGameChange = () => {
     changeGameButton.disabled = false;
     removeClass([changeGameButton], 'opacity');
-};
+}
 
-function disableButtons() {
-    for(var i = 0; i < allButtons.length; i++) {
+const disableButtons = () => {
+    for (let i = 0; i < allButtons.length; i++) {
         allButtons[i].disabled = true;
-        addClass([allButtons[i]], 'opacity');
-    };
-};
+        allButtons[i].classList.add('opacity');
+    }
+}
 
-function pickNewGame() {
+const pickNewGame = () => {
     clearGame();
     addClass([gameChoiceImages, resultsImages, changeGameButton], 'hidden');
     removeClass([classicButton, spicyButton], 'hidden');
     updateInfo(winnerAnouncement, 'Choose your game!');
-};
+}
 
-function showStats() {
+const showStats = () => {
     showPlayerStats();
     showComputerStats();
-};
+}
 
-function showPlayerStats() {
+const showPlayerStats = () => {
     game.player.retrieveWinsFromStorage();
     updateInfo(playerName, `${game.player.name}`);
     updateInfo(playerEmoji, `${game.player.emoji}`);
     updateInfo(playerWins, `Wins: ${game.player.wins}`);
-};
+}
 
-function showComputerStats() {
+const showComputerStats = () => {
     game.computer.retrieveWinsFromStorage();
     updateInfo(compName, `${game.computer.name}`);
     updateInfo(compEmoji, `${game.computer.emoji}`);
     updateInfo(compWins, `Wins: ${game.computer.wins}`);
-};
+}
 
-function hideButtons() {
+const hideButtons = () => {
     removeClass([gameChoiceImages], 'hidden');
     addClass([classicButton, spicyButton, changeGameButton], 'hidden');
-};
+}
 
 // helper functions
-function updateInfo(element, update) {
+const updateInfo = (element, update) => {
     element.innerText = update;
-};
+}
 
-function removeClass(elements, rule) {
-    for (var i = 0; i < elements.length; i ++) {
-        elements[i].classList.remove(rule);
-    };
-};
+const removeClass = (elements) => {
+    elements.forEach(item => item.classList.remove('hidden'));
+}
 
-function addClass(elements, rule) {
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.add(rule);
-    };
-};
+const addClass = (elements) => {
+    elements.forEach(item => item.classList.add('hidden'));
+}
 
-function getRandomIndex(array) {
+const getRandomIndex = (array) => {
     return Math.floor(Math.random() * array.length);
-};
+}
+
+// event listeners
+window.addEventListener('load', () => {
+    showStats();
+});
+buttonBox.addEventListener('click', (event) => {
+    startGameType(event);
+});
+gameChoiceImages.addEventListener('click', (event) => {
+    playRound(event);
+});
+changeGameButton.addEventListener('click', () => {
+    pickNewGame();
+});
