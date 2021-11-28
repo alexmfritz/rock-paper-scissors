@@ -7,23 +7,23 @@ class Player {
         this.choice = null;
     }
 
-    takeTurn(decision) {
+    takeTurn = (decision) => {
         if (!decision) {
-            var computerChoices = Array.from(Object.keys(game.choices));
+            let computerChoices = Array.from(Object.keys(game.choices));
             return this.choice = computerChoices[getRandomIndex(computerChoices)];
         }
         return this.choice = decision;
     }
 
-    saveWinsToStorage() {
-        var storedWins = this.wins;
-        var stringifiedWins = JSON.stringify(storedWins);
+    saveWinsToStorage = () => {
+        let storedWins = this.wins;
+        let stringifiedWins = JSON.stringify(storedWins);
         localStorage.setItem(`${this.name} wins`, stringifiedWins);
     }
     
-    retrieveWinsFromStorage() {
-        var retrievedWins = localStorage.getItem(`${this.name} wins`);
-        var parsedWins = JSON.parse(retrievedWins);
+    retrieveWinsFromStorage = () => {
+        let retrievedWins = localStorage.getItem(`${this.name} wins`);
+        let parsedWins = JSON.parse(retrievedWins);
         this.wins = parsedWins || 0;
         return `Wins: ${this.wins}`;
     }
