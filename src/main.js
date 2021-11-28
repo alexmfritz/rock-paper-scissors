@@ -7,8 +7,7 @@ var ironManLogo = document.getElementById('ironman');
 var capAmLogo = document.getElementById('captain');
 var thorLogo = document.getElementById('thor');
 var widowLogo = document.getElementById('widow');
-var allButtons = document.getElementsByClassName('med-img');
-// var allButtons = document.querySelectorAll('all-btns');
+var allButtons = document.getElementsByClassName('all-btns');
 // chosen images
 var playerChoice = document.getElementById('playerChoiceDisplay');
 var computerChoice = document.getElementById('computerChoiceDisplay');
@@ -17,6 +16,7 @@ var buttonBox = document.getElementById('gameTypeBox');
 var classicButton = document.getElementById('classic');
 var spicyButton = document.getElementById('spicy');
 var changeGameButton = document.getElementById('changeGameButton');
+var resetScoresButton = document.getElementById('resetScoresButton');
 // player
 var playerEmoji = document.getElementById('playerEmoji');
 var playerName = document.getElementById('playerName');
@@ -102,6 +102,7 @@ const clearGame = () => {
 const replayGame = () => {
     game.resetGame();
     enableGameChange();
+    checkScores();
     displayChoices();
     removeClass([gameChoiceImages], 'hidden');
     addClass([resultsImages], 'hidden');
@@ -151,17 +152,31 @@ const hideButtons = () => {
     addClass([classicButton, spicyButton, changeGameButton], 'hidden');
 }
 
+const checkScores = () => {
+    if (game.computer.wins >= (game.player.wins + 3)) {
+        removeClass([resetScoresButton], 'hidden');
+    } else if (game.player.wins >= (game.computer.wins + 3)) {
+        removeClass([resetScoresButton], 'hidden');
+    }
+}
+
+const resetScores = () => {
+    localStorage.clear();
+    showStats();
+    addClass([resetScoresButton], 'hidden');
+}
+
 // helper functions
 const updateInfo = (element, update) => {
     element.innerText = update;
 }
 
-const removeClass = (elements) => {
-    elements.forEach(item => item.classList.remove('hidden'));
+const removeClass = (elements, rule) => {
+    elements.forEach(item => item.classList.remove(rule));
 }
 
-const addClass = (elements) => {
-    elements.forEach(item => item.classList.add('hidden'));
+const addClass = (elements, rule) => {
+    elements.forEach(item => item.classList.add(rule));
 }
 
 const getRandomIndex = (array) => {
@@ -180,4 +195,7 @@ gameChoiceImages.addEventListener('click', (event) => {
 });
 changeGameButton.addEventListener('click', () => {
     pickNewGame();
+});
+resetScoresButton.addEventListener('click', () => {
+    resetScores();
 });
