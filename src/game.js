@@ -12,22 +12,24 @@ class Game {
         this.winner;
     }
 
-    playGame(type) {
+    playGame = (type) => {
         this.type = type;
-        if (this.type === 'spicy') {
-            this.choices['hulk'] = ['thor', 'captain'];
-            this.choices['widow'] = ['hulk', 'ironman'];
-        };
+        switch (this.type) {
+            case 'spicy':
+                this.choices['hulk'] = ['thor', 'captain'];
+                this.choices['widow'] = ['hulk', 'ironman'];
+                break;
+        }
     }
 
-    updateWinner(winner) {
+    updateWinner = (winner) => {
         winner.wins++;
         winner.saveWinsToStorage();
         return winner.name;
     }
 
-    determineWinner() {
-        var winsAgainst = this.choices[this.player.choice];
+    determineWinner = () => {
+        let winsAgainst = this.choices[this.player.choice];
         if (this.player.choice === this.computer.choice) {
             this.winner = 'Draw';
             return '😭 It\s a draw! 😭';
@@ -39,7 +41,7 @@ class Game {
         return `💻 ${game.computer.name} wins! 💻`;
     }
     
-    resetGame() {
+    resetGame = () => {
         this.player.choice = null;
         this.computer.choice = null;
     }
