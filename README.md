@@ -71,7 +71,8 @@ The biggest success of the project was the creation of composition within HTML a
 - A login screen that allows users to dynamically choose their name and emoji
 - The option for users to choose between WHICH three/five options they play with out of a selection of many more Avengers/Marvel Comic's superheroes 
 - Upon winning (no matter who wins), a selection of quotes from the winning character displays on the screen
-- After **5** consistent losses in a row, a reset score button appears for the user because they will be mad that the computer or their friend keeps winning
+- [x] After **3** consistent losses in a row, a reset score button appears for the user because they will be mad that the computer or their friend keeps winning
+          - **Note:** The reset score functionality has since been implemented
 
 ## Technologies
 
